@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace TaskTimer.WPF.DesignTime.Models
+namespace TaskTimer.Wpf.DesignTime.Models
 {
     public class DesignShellViewModel : PropertyChangedBase
     {

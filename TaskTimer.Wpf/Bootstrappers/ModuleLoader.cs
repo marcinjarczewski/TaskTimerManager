@@ -5,7 +5,7 @@ using TaskTimer.Contracts;
 using System;
 using System.Reflection;
 
-namespace TaskTimer.WPF.Bootstrappers
+namespace TaskTimer.Wpf.Bootstrappers
 {
     public class ModuleLoader
     {

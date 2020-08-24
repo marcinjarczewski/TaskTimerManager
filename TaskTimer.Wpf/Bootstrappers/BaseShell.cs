@@ -1,10 +1,10 @@
 ﻿using TaskTimer.Contracts;
-using TaskTimer.WPF.ViewModels;
+using TaskTimer.Wpf.ViewModels;
 using TaskTimer.Contracts.Bootstrappers;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace TaskTimer.WPF.Bootstrappers
+namespace TaskTimer.Wpf.Bootstrappers
 {
     public class BaseShell : IShell
     {

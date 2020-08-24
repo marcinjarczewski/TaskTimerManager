@@ -1,7 +1,7 @@
 ﻿using Caliburn.Micro;
 using TaskTimer.Contracts;
 
-namespace TaskTimer.WPF.DesignTime.Models
+namespace TaskTimer.Wpf.DesignTime.Models
 {
     public class DesignDialogViewModel : PropertyChangedBase
     {

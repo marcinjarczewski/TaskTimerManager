@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="TaskTimer.Wpf.Views.MainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TaskTimer.Wpf.Views"
+             mc:Ignorable="d" 
+             Style="{StaticResource uscTemplate}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="*" MinWidth="250" MaxWidth="600"></ColumnDefinition>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="28"></RowDefinition>
+            <RowDefinition Height="28"></RowDefinition>
+            <RowDefinition Height="28"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock Style="{StaticResource tblDescription}"  Grid.Column="1" Grid.Row="1">Select file:</TextBlock>
+        <TextBox x:Name="SingleFile" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" ></TextBox>
+        <Button  x:Name="SinglePdfPicker" Grid.Column="4" Grid.Row="1" Style="{StaticResource btnWithoutImage}" Content="Choose path" />
+
+        <Button x:Name="ConvertPdfs" Style="{StaticResource btnConvertAll}" Grid.Column="2" Grid.Row="3" >Convert Pdfs</Button>
+        <Button x:Name="ConvertSinglePdf" Grid.ColumnSpan="2" Style="{StaticResource btnConvert}" Grid.Column="3" Grid.Row="3" >Convert Single Pdf</Button>
+    </Grid>
+</UserControl>

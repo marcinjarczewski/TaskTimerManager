@@ -1,13 +1,13 @@
 ﻿using Caliburn.Micro;
 using Castle.Windsor;
-using TaskTimer.WPF.ViewModels;
+using TaskTimer.Wpf.ViewModels;
 using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
 
-namespace TaskTimer.WPF.Bootstrappers
+namespace TaskTimer.Wpf.Bootstrappers
 {
     public class Bootstrapper : BootstrapperBase
     {

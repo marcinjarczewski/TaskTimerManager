@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaskTimer.WPF.ViewModels
+namespace TaskTimer.Wpf.ViewModels
 {
     public class ShellViewModel : PropertyChangedBase
     {

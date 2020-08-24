@@ -1,9 +1,17 @@
 ﻿<Application x:Class="TaskTimer.Wpf.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:TaskTimer.Wpf"
-             StartupUri="Views/ShellView.xaml">
+             xmlns:local="clr-namespace:TaskTimer.Wpf.Bootstrappers">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <local:Bootstrapper x:Key="Bootstrapper"></local:Bootstrapper>
+                </ResourceDictionary>
+                <ResourceDictionary x:Name="appStyle" Source="Themes/AppStyle.xaml" />
+                <ResourceDictionary x:Name="brushes" Source="Themes/Brushes.xaml" />
+                <ResourceDictionary x:Name="controls" Source="Themes/Controls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

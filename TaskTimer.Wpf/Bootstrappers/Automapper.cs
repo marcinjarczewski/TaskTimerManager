@@ -3,11 +3,11 @@ using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using TaskTimer.Contracts;
-using TaskTimer.WPF.ViewModels;
+using TaskTimer.Wpf.ViewModels;
 using TaskTimer.Contracts.Db;
 using TaskTimer.Database.DbModels;
 
-namespace TaskTimer.WPF.Bootstrappers
+namespace TaskTimer.Wpf.Bootstrappers
 {
     public static class Automapper
     {
