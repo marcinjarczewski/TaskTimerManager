@@ -22,6 +22,7 @@ namespace TaskTimer.Wpf.Bootstrappers
         {
             Automapper.Init();
             var loader = _container.Resolve<ModuleLoader>();
+            //loader.InitModules();
 
             var exeDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             var pattern = "*.dll";

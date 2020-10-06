@@ -75,6 +75,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbModels\DbProjectEntryModel.cs" />
+    <Compile Include="DbModels\DbProjectModel.cs" />
     <Compile Include="DbModels\DbConfigModel.cs" />
     <Compile Include="DbModels\DbLogModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

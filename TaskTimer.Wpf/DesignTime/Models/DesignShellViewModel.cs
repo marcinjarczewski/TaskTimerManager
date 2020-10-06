@@ -12,6 +12,7 @@ namespace TaskTimer.Wpf.DesignTime.Models
         {
             MenuItems = new ObservableCollection<ShellMenuItem>();
             MenuItems.Add(new ShellMenuItem() { Caption = "Convert" });
+            MenuItems.Add(new ShellMenuItem() { Caption = "History" });
             MenuItems.Add(new ShellMenuItem() { Caption = "Settings"});      
         }
 

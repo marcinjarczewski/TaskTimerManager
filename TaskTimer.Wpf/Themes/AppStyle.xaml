@@ -22,16 +22,16 @@
                         <EventTrigger RoutedEvent="MouseEnter">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetProperty="FontSize"
-                    To="20" Duration="0:0:0.25"/>
+                                    <ColorAnimation Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)"
+                    To="#88b0e8" Duration="0:0:0.25"/>
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
                         <EventTrigger RoutedEvent="MouseLeave">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetProperty="FontSize"
-                    To="16" Duration="0:0:0.25"/>
+                                    <ColorAnimation Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)"
+                    To="Black" Duration="0:0:0.25"/>
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
@@ -44,7 +44,7 @@
                             </MultiTrigger.Conditions>
                             <Setter Property="Background"
                                     TargetName="Bd"
-                                    Value="{DynamicResource SelectedMenuColor}" >
+                                    Value="{DynamicResource MenuColor}" >
                             </Setter>
                         </MultiTrigger>
                     </ControlTemplate.Triggers>

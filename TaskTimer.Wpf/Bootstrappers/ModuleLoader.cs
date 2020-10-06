@@ -4,6 +4,7 @@ using Castle.Windsor.Installer;
 using TaskTimer.Contracts;
 using System;
 using System.Reflection;
+using TaskTimer.Wpf.Modules;
 
 namespace TaskTimer.Wpf.Bootstrappers
 {
@@ -38,6 +39,12 @@ namespace TaskTimer.Wpf.Bootstrappers
                 //TODO: good exception handling 
                 return null;
             }
+        }
+
+        public void InitModules()
+        {
+           // var modulecontainer = new WindsorContainer();
+           //_mainContainer.Resolve<IModule>().Init();
         }
     }
 }

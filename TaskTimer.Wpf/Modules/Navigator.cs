@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using TaskTimer.Contracts;
+using TaskTimer.Contracts.Db;
 using TaskTimer.Wpf.ViewModels;
 
 namespace TaskTimer.Wpf.Modules
@@ -9,6 +10,11 @@ namespace TaskTimer.Wpf.Modules
         IWindowManager manager = new WindowManager();
         public Navigator()
         {
+        }
+
+        public DbProjectDto EditProject(DbProjectDto project = null)
+        {
+            throw new System.NotImplementedException();
         }
 
         public void ShowDialog(string title, string text)
