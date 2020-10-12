@@ -7,5 +7,7 @@ namespace TaskTimer.Contracts
         void ShowDialog(string title, string message);
 
         DbProjectDto EditProject(DbProjectDto project = null);
+
+        DbClientDto NewClient(DbClientDto client = null);
     }
 }

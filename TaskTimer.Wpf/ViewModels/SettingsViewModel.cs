@@ -31,6 +31,23 @@ namespace TaskTimer.Wpf.ViewModels
             set { _TargetFolderPath = value; NotifyOfPropertyChange(() => TargetFolderPath); }
         }
 
+        private bool _IsInvoiceHidden;
+
+        public bool IsInvoiceHidden
+        {
+            get { return _IsInvoiceHidden; }
+            set { _IsInvoiceHidden = value; }
+        }
+
+        private bool _IsInvoiceDefault;
+
+        public bool IsInvoiceDefault
+        {
+            get { return _IsInvoiceDefault; }
+            set { _IsInvoiceDefault = value; }
+        }
+
+
         private DbProjectDto Projects;
 
         public DbProjectDto MyProperty

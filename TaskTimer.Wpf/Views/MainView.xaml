@@ -4,32 +4,57 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TaskTimer.Wpf.Views"
+             xmlns:design="clr-namespace:TaskTimer.Wpf.DesignTime.Models" 
+             xmlns:vm="clr-namespace:TaskTimer.Wpf.ViewModels" 
+             xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform"
              mc:Ignorable="d" 
-             Style="{StaticResource uscTemplate}"
-             d:DesignHeight="450" d:DesignWidth="800">
+              d:DataContext="{d:DesignInstance Type=design:DesignMainViewModel, IsDesignTimeCreatable=True}"
+             cal:Bind.AtDesignTime="True"
+             Style="{StaticResource mainTemplate}" d:DesignWidth="800" Height="429.19">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"></ColumnDefinition>
-            <ColumnDefinition Width="100"></ColumnDefinition>
-            <ColumnDefinition Width="*" MinWidth="250" MaxWidth="600"></ColumnDefinition>
-            <ColumnDefinition Width="80"></ColumnDefinition>
-            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="10"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="10"></RowDefinition>
             <RowDefinition Height="28"></RowDefinition>
-            <RowDefinition Height="28"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="38"></RowDefinition>
+            <RowDefinition Height="38"></RowDefinition>
             <RowDefinition Height="28"></RowDefinition>
             <RowDefinition Height="20"></RowDefinition>
         </Grid.RowDefinitions>
-
-
-        <TextBlock Style="{StaticResource tblDescription}"  Grid.Column="1" Grid.Row="1">Select file:</TextBlock>
-        <TextBox x:Name="SingleFile" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" ></TextBox>
-        <Button  x:Name="SinglePdfPicker" Grid.Column="4" Grid.Row="1" Style="{StaticResource btnWithoutImage}" Content="Choose path" />
-
-        <Button x:Name="ConvertPdfs" Style="{StaticResource btnConvertAll}" Grid.Column="2" Grid.Row="3" >Convert Pdfs</Button>
-        <Button x:Name="ConvertSinglePdf" Grid.ColumnSpan="2" Style="{StaticResource btnConvert}" Grid.Column="3" Grid.Row="3" >Convert Single Pdf</Button>
+        <!--<ComboBox Grid.Row="1" Grid.Column="2" DisplayMemberPath="Name" x:Name="Clients"></ComboBox>-->
+        <TextBlock Style="{StaticResource tblDescription}"  Grid.Column="2" Grid.Row="1">Clients:</TextBlock>
+        <Grid  Grid.Column="2" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Style="{StaticResource tblDescription}" x:Name="SelectedClient_Name" Grid.Column="0"></TextBlock>
+            <Button Grid.Column="1" Margin="0,3,0,3" x:Name="EditSelectedClient"
+                    HorizontalAlignment="Right"  Width="{Binding ActualWidth, ElementName=parentElementName}" Style="{StaticResource btnEdit}">Edytuj</Button>
+        </Grid>
+        <ListBox Grid.Row="2" Grid.Column="2" HorizontalContentAlignment="Stretch" SelectedItem="{Binding Path=SelectedClient, Mode=TwoWay}" x:Name="Clients">
+            <ListBox.ItemTemplate>
+                <DataTemplate >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="0"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30px"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Style="{StaticResource clientRowTemplate}" Grid.Column="0" Text="{Binding Name}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Grid.Row="4" Grid.Column="2" Margin="0,3,0,3" HorizontalAlignment="Right"  Width="{Binding ActualWidth, ElementName=parentElementName}" x:Name="AddNewClient" 
+                Style="{StaticResource btnAdd}">Dodaj nowego klienta</Button>
     </Grid>
 </UserControl>

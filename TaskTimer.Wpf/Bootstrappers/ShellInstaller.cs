@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Caliburn.Micro;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
@@ -21,6 +22,7 @@ namespace TaskTimer.Wpf.Bootstrappers
                 .Register(Component.For<IWindsorContainer>().Instance(container))
                 .Register(Component.For<ModuleLoader>())
                 .Register(Component.For<MainViewModel>())
+                .Register(Component.For<DialogViewModel>())
                 .Register(Component.For<SettingsViewModel>())
                 .Register(Component.For<IModule>().ImplementedBy<BaseModule>())
                 .Register(Component.For<IShell>().ImplementedBy<BaseShell>())

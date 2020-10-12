@@ -85,7 +85,10 @@
     <Compile Include="Bootstrappers\ModuleLoader.cs" />
     <Compile Include="Bootstrappers\ShellInstaller.cs" />
     <Compile Include="DesignTime\Models\DesignDialogViewModel.cs" />
+    <Compile Include="DesignTime\Models\DesignMainViewModel.cs" />
     <Compile Include="DesignTime\Models\DesignShellViewModel.cs" />
+    <Compile Include="Models\TaskModel.cs" />
+    <Compile Include="Models\ClientModel.cs" />
     <Compile Include="Modules\BaseModule.cs" />
     <Compile Include="Modules\Navigator.cs" />
     <Compile Include="Themes\AppStyle.xaml.cs">
@@ -97,9 +100,13 @@
     <Compile Include="Themes\Controls.xaml.cs">
       <DependentUpon>Controls.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\DialogViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="Views\DialogView.xaml.cs">
+      <DependentUpon>DialogView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
@@ -122,6 +129,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DialogView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

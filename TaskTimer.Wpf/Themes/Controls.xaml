@@ -84,7 +84,37 @@
         </Setter>
     </Style>
 
-    <Style BasedOn="{StaticResource btnOk}" x:Key="btnConvertAll" TargetType="{x:Type Button}">
+    <Style BasedOn="{StaticResource btnOk}" x:Key="btnEdit" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="4" Background="{TemplateBinding Background}">
+                        <Grid>
+                            <Path x:Name="PathIcon" Width="25" Height="25" Stretch="Fill" Fill="Brown" HorizontalAlignment="Left" Margin="13,0,0,0" >
+                                <Path.Data>
+                                    F1 M 53.2929,21.2929L 54.7071,22.7071C 56.4645,24.4645 56.4645,27.3137 54.7071,29.0711L 52.2323,31.5459L 44.4541,23.7677L 46.9289,21.2929C 48.6863,19.5355 51.5355,19.5355 53.2929,21.2929 Z M 31.7262,52.052L 23.948,44.2738L 43.0399,25.182L 50.818,32.9601L 31.7262,52.052 Z M 23.2409,47.1023L 28.8977,52.7591L 21.0463,54.9537L 23.2409,47.1023 Z
+                                </Path.Data>
+                            </Path>
+                            <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="45,0,30,0" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FF2DA8EE" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="#FF2DA8EE" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style BasedOn="{StaticResource btnOk}" x:Key="btnAdd" TargetType="{x:Type Button}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -92,7 +122,7 @@
                         <Grid>
                             <Path x:Name="PathIcon" Width="25" Height="25" Stretch="Fill" Fill="Green" HorizontalAlignment="Left" Margin="13,0,0,0" >
                                 <Path.Data>
-                                    F1 M 19,38L 19,22L 24,22L 24,20L 29,20L 29,19L 46.75,19L 57,29.25L 57,38L 59,38L 59,57L 58.5833,57L 17.4167,57L 17,57L 17,38L 19,38 Z M 24,38L 24,25L 22,25L 22,38L 24,38 Z M 27,23L 27,38L 29,38L 29,23L 27,23 Z M 43,46L 43,49L 33,49L 33,46L 43,46 Z M 54,38L 54,33L 43,33L 43,22L 32,22L 32,38L 54,38 Z M 46,22.75L 46,30L 53.25,30L 46,22.75 Z M 21,42L 21,53L 55,53L 55,42L 21,42 Z
+                                    F1 M 35,19L 41,19L 41,35L 57,35L 57,41L 41,41L 41,57L 35,57L 35,41L 19,41L 19,35L 35,35L 35,19 Z
                                 </Path.Data>
                             </Path>
                             <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="45,0,30,0" />
@@ -142,6 +172,16 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style x:Key="clientRowTemplate" TargetType="TextBlock">
+        <Setter Property="Background" Value="#e9eef3"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+        <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+        <Setter Property="Background" Value="#a6aeb5"></Setter>
+        <Setter Property="Foreground" Value="Brown"></Setter>
+        <Setter Property="FontSize" Value="18"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
     </Style>
 
 </ResourceDictionary>

@@ -53,8 +53,8 @@
         </Setter>
     </Style>
       
-    <Style x:Key="uscTemplate" TargetType="UserControl">
-        <Setter Property="Background" Value="#FFE0F4FF"></Setter>
+    <Style x:Key="mainTemplate" TargetType="UserControl">
+        <Setter Property="Background" Value="#e9eef3"></Setter>
     </Style>
     
 </ResourceDictionary>
