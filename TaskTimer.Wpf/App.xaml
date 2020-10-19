@@ -1,12 +1,16 @@
 ﻿<Application x:Class="TaskTimer.Wpf.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:TaskTimer.Wpf.Bootstrappers">
+             xmlns:local="clr-namespace:TaskTimer.Wpf.Bootstrappers"
+             xmlns:helpers="clr-namespace:TaskTimer.Wpf.Helpers">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
                     <local:Bootstrapper x:Key="Bootstrapper"></local:Bootstrapper>
+                </ResourceDictionary>
+                <ResourceDictionary>
+                    <helpers:VisibilityConverter x:Key="visibilityConverter"/>
                 </ResourceDictionary>
                 <ResourceDictionary x:Name="appStyle" Source="Themes/AppStyle.xaml" />
                 <ResourceDictionary x:Name="brushes" Source="Themes/Brushes.xaml" />

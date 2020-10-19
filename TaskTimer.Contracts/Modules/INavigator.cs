@@ -9,5 +9,7 @@ namespace TaskTimer.Contracts
         DbProjectDto EditProject(DbProjectDto project = null);
 
         DbClientDto NewClient(DbClientDto client = null);
+
+        bool ShowDialog(bool isConfirm, string title, string message);
     }
 }

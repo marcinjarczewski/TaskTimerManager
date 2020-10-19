@@ -1,18 +1,19 @@
-﻿using System;
+﻿using SQLite;
 
-namespace TaskTimer.Contracts.Db
+namespace TaskTimer.Database.DbModels
 {
-    public class DbClientDto
+    public class DbClientModel
     {
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
         public string Name { get; set; }
 
         public string SearchName { get; set; }
 
-        public DateTime AddedDate { get; set; }
+        public string AddedDate { get; set; }
 
-        public DateTime? ExportedDate { get; set; }
+        public string ExportedDate { get; set; }
 
         public bool IsActive { get; set; }
 

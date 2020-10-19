@@ -8,6 +8,8 @@ using TaskTimer.Contracts.Bootstrappers;
 using System;
 using System.IO;
 using TaskTimer.Wpf.Models;
+using System.Linq;
+using System.Collections.ObjectModel;
 
 namespace TaskTimer.Wpf.ViewModels
 {
@@ -23,7 +25,7 @@ namespace TaskTimer.Wpf.ViewModels
         public BindableCollection<ClientModel> Clients
         {
             get { return _Clients; }
-            set { _Clients = value; }
+            set { _Clients = value;  }
         }
 
         private ClientModel _SelectedClient;
@@ -49,10 +51,7 @@ namespace TaskTimer.Wpf.ViewModels
             _mapper = mapper;
             _navigator = navigator;
             _Clients = new BindableCollection<ClientModel>();
-            Clients = new BindableCollection<ClientModel>();
-            Clients.Add(new ClientModel { Name = "Klient 1", Priority = 1 });
-            Clients.Add(new ClientModel { Name = "Klient 2", Priority = 2 });
-            Clients.Add(new ClientModel { Name = "Klient 3", Priority = 3 });
+            _mapper.Map(_database.GetClients(), Clients);
         }
         /// <summary>
         /// Calls every time when view is activated.
@@ -67,14 +66,27 @@ namespace TaskTimer.Wpf.ViewModels
         public void AddNewClient()
         {
             var client = _navigator.NewClient();
+            if(client != null)
+            {
+                _database.AddClient(client);
+                _navigator.ShowDialog("Nowy klient", "Nowy klient został dodany");
+            }
         }
 
         public bool CanEditSelectedClient { get { return SelectedClient != null; } }
 
 
-        public void EditSelectedClient(ClientModel selectedClient)
+        public void EditSelectedClient()
         {
-
+            var client = _navigator.NewClient(_mapper.Map<DbClientDto>(SelectedClient));
+            if (client != null)
+            {
+                _database.EditClient(client);
+                SelectedClient.Name = client.Name;
+                SelectedClient.SearchName = client.SearchName;
+                SelectedClient.Priority = client.Priority;
+                _navigator.ShowDialog("Nowy klient", "Edycja klienta zapisana");
+            }
         }
     }
 }

@@ -1,0 +1,65 @@
+﻿<Window x:Class="TaskTimer.Wpf.Views.EditClientView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:design="clr-namespace:TaskTimer.Wpf.DesignTime.Models" 
+        xmlns:helpers="clr-namespace:TaskTimer.Wpf.Helpers" 
+        xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform"
+        mc:Ignorable="d" FontSize="16"    
+        d:DataContext="{d:DesignInstance Type=design:DesignDialogViewModel, IsDesignTimeCreatable=True}"
+        cal:Bind.AtDesignTime="True"
+        Title="Nowy Klient" Height="450" Width="700">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="230" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="150" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="38px"></RowDefinition>
+            <RowDefinition Height="38px"></RowDefinition>
+            <RowDefinition Height="38px"></RowDefinition>
+            <RowDefinition Height="38px"></RowDefinition>
+            <RowDefinition Height="38px"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50px"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Nazwa klienta:"/>
+        <Grid Margin="0,2" Grid.Column="1" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MaxWidth="300"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Height="Auto"  VerticalContentAlignment="Center" x:Name="Client_Name"></TextBox>
+        </Grid>
+        <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="1" Text="Nazwa klienta w OTRS:"/>
+        <Grid Margin="0,2" Grid.Column="1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MaxWidth="300"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Height="Auto"  VerticalContentAlignment="Center" x:Name="Client_SearchName"></TextBox>
+        </Grid>
+        <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="2" Text="Priorytet na liście:"/>
+        <Grid Margin="0,2" Grid.Column="1" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MaxWidth="300"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Height="Auto"  VerticalContentAlignment="Center" x:Name="Client_Priority"></TextBox>
+        </Grid>
+        <TextBlock Style="{StaticResource settingsBlock}" Visibility="{Binding IsEditClient, Converter={StaticResource visibilityConverter}}" Grid.Column="0" Grid.Row="3" Text="Aktywny:"/>
+        <Grid Margin="4,4" Visibility="{Binding IsEditClient, Converter={StaticResource visibilityConverter}}" Grid.Column="1" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MaxWidth="200"/>
+            </Grid.ColumnDefinitions>
+            <CheckBox x:Name="Client_IsActive">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </CheckBox.LayoutTransform>
+            </CheckBox>
+        </Grid>
+        <DockPanel Grid.Row="6" HorizontalAlignment="Center" Grid.ColumnSpan="3">
+            <Button Height="35"  Width="{Binding ActualWidth, ElementName=parentElementName}" x:Name="SaveClient"
+                    Style="{StaticResource btnOk}">Zapisz</Button>
+        </DockPanel>
+    </Grid>
+</Window>

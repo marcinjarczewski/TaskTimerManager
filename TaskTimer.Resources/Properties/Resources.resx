@@ -120,7 +120,7 @@
   <data name="Cancel" xml:space="preserve">
     <value>Anuluj</value>
   </data>
-  <data name="Ok" xml:space="preserve">
-    <value>Ok</value>
+  <data name="Cancela" xml:space="preserve">
+    <value>13</value>
   </data>
 </root>

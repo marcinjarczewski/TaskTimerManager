@@ -8,8 +8,9 @@
         mc:Ignorable="d" FontSize="16"
         d:DataContext="{d:DesignInstance Type=design:DesignShellViewModel, IsDesignTimeCreatable=True}"
         cal:Bind.AtDesignTime="True"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Style="{StaticResource MainWindow}"
+        Title="MainWindow" Height="650" Width="800">
+    <Grid Style="{StaticResource mainGrid}">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
@@ -27,6 +28,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ContentControl x:Name="CurrentView" Grid.Row="1"/>
+        <ContentControl  x:Name="CurrentView" Grid.Row="1"/>
     </Grid>
 </Window>

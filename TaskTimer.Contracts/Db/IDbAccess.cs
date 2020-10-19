@@ -1,4 +1,6 @@
-﻿namespace TaskTimer.Contracts.Db
+﻿using System.Collections.Generic;
+
+namespace TaskTimer.Contracts.Db
 {
     public interface IDbAccess
     {
@@ -13,5 +15,11 @@
         DbConfigDto GetConfig();
 
         void SaveConfig(DbConfigDto config);
+
+        List<DbClientDto> GetClients();
+
+        void AddClient(DbClientDto client);
+
+        void EditClient(DbClientDto client);
     }
 }

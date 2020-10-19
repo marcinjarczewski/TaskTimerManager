@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TaskTimer.Wpf.Properties {
+namespace TaskTimer.Resources.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace TaskTimer.Wpf.Properties {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TaskTimer.Wpf.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TaskTimer.Resources.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -70,11 +70,11 @@ namespace TaskTimer.Wpf.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Ok.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu 13.
         /// </summary>
-        public static string Ok {
+        public static string Cancela {
             get {
-                return ResourceManager.GetString("Ok", resourceCulture);
+                return ResourceManager.GetString("Cancela", resourceCulture);
             }
         }
     }

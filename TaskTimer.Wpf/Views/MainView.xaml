@@ -10,7 +10,7 @@
              mc:Ignorable="d" 
               d:DataContext="{d:DesignInstance Type=design:DesignMainViewModel, IsDesignTimeCreatable=True}"
              cal:Bind.AtDesignTime="True"
-             Style="{StaticResource mainTemplate}" d:DesignWidth="800" Height="429.19">
+             Style="{StaticResource mainTemplate}" d:DesignWidth="800" d:DesignHeight="500">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"></ColumnDefinition>
@@ -38,7 +38,8 @@
             <Button Grid.Column="1" Margin="0,3,0,3" x:Name="EditSelectedClient"
                     HorizontalAlignment="Right"  Width="{Binding ActualWidth, ElementName=parentElementName}" Style="{StaticResource btnEdit}">Edytuj</Button>
         </Grid>
-        <ListBox Grid.Row="2" Grid.Column="2" HorizontalContentAlignment="Stretch" SelectedItem="{Binding Path=SelectedClient, Mode=TwoWay}" x:Name="Clients">
+        <ListBox Grid.Row="2" Grid.Column="2" HorizontalContentAlignment="Stretch"
+                ItemContainerStyle="{StaticResource SelectedClientStyle}" SelectedItem="{Binding Path=SelectedClient, Mode=TwoWay}" x:Name="Clients">
             <ListBox.ItemTemplate>
                 <DataTemplate >
                     <Grid>
@@ -49,7 +50,9 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30px"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBlock Style="{StaticResource clientRowTemplate}" Grid.Column="0" Text="{Binding Name}"/>
+                        <TextBlock Style="{StaticResource clientRowTemplate}" Grid.Column="0" Text="{Binding Name}">
+                            
+                        </TextBlock>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

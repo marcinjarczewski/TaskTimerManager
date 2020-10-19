@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
          xmlns:design="clr-namespace:TaskTimer.Wpf.DesignTime.Models" 
+        xmlns:trans= "clr-namespace:TaskTimer.Wpf.Properties"
         xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform"
         mc:Ignorable="d" FontSize="16"    
         d:DataContext="{d:DesignInstance Type=design:DesignDialogViewModel, IsDesignTimeCreatable=True}"
@@ -12,7 +13,14 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <TextBlock HorizontalAlignment="Center" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Text}"></TextBlock>
+        <DockPanel Grid.Row="2" HorizontalAlignment="Center" Grid.ColumnSpan="3">
+            <Button Height="35" Margin="0,2,5,0"  Width="{Binding ActualWidth, ElementName=parentElementName}" x:Name="Confirm"
+                    Style="{StaticResource btnOk}">ok</Button>
+            <Button Height="35"  Width="{Binding ActualWidth, ElementName=parentElementName}" x:Name="Cancel" Visibility="{Binding IsConfirm, Converter={StaticResource visibilityConverter}}"
+                  Content="{x:Static trans:Resources.Cancel}"  Style="{StaticResource btnCancel}"></Button>
+        </DockPanel>
     </Grid>
 </Window>

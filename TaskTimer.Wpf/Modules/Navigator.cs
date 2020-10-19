@@ -20,18 +20,25 @@ namespace TaskTimer.Wpf.Modules
 
         public DbClientDto NewClient(DbClientDto client = null)
         {
-            var dialog = new DialogViewModel("a", "bc");
-            this.manager.ShowDialog(dialog);
-            return new DbClientDto
+            var dialog = client != null ? new EditClientViewModel(this, client) : new EditClientViewModel(this);
+            var result = this.manager.ShowDialog(dialog) ?? false;
+            if(!result)
             {
-                AddedDate = DateTime.Now
-            };
+                return null;
+            }
+            return dialog.Client;
         }
 
         public void ShowDialog(string title, string text)
         {
             var dialog = new DialogViewModel(title, text);
             this.manager.ShowDialog(dialog);
+        }
+
+        public bool ShowDialog(bool isConfirm, string title, string text)
+        {
+            var dialog = new DialogViewModel(isConfirm, title, text);
+            return this.manager.ShowDialog(dialog) ?? false;
         }
     }
 }
