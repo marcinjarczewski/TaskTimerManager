@@ -39,23 +39,8 @@
                     HorizontalAlignment="Right"  Width="{Binding ActualWidth, ElementName=parentElementName}" Style="{StaticResource btnEdit}">Edytuj</Button>
         </Grid>
         <ListBox Grid.Row="2" Grid.Column="2" HorizontalContentAlignment="Stretch"
-                ItemContainerStyle="{StaticResource SelectedClientStyle}" SelectedItem="{Binding Path=SelectedClient, Mode=TwoWay}" x:Name="Clients">
-            <ListBox.ItemTemplate>
-                <DataTemplate >
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="0"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="30px"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <TextBlock Style="{StaticResource clientRowTemplate}" Grid.Column="0" Text="{Binding Name}">
-                            
-                        </TextBlock>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
+                Style="{StaticResource ClientListBox}" 
+            ItemContainerStyle="{StaticResource ClientListBoxItem}" ItemTemplate="{StaticResource ClientDataTemplate}" SelectedItem="{Binding Path=SelectedClient, Mode=TwoWay}" x:Name="Clients">
         </ListBox>
         <Button Grid.Row="4" Grid.Column="2" Margin="0,3,0,3" HorizontalAlignment="Right"  Width="{Binding ActualWidth, ElementName=parentElementName}" x:Name="AddNewClient" 
                 Style="{StaticResource btnAdd}">Dodaj nowego klienta</Button>

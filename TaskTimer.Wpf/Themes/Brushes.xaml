@@ -9,7 +9,13 @@
     <Color x:Key="menuColorDef">#c2d7f5</Color>
     <StaticResource x:Key="menuColorRes" ResourceKey="menuColorDef"/>
     <SolidColorBrush x:Key="MenuColor" Color="{DynamicResource menuColorRes}"/>
-    
+
+
+    <LinearGradientBrush  x:Key="ClientBrush" EndPoint="1,0.5" Opacity="0.8">
+        <GradientStop Color="#76E4E8" Offset="0.0" />
+        <GradientStop Color="#70AEB3" Offset="0.5" />
+    </LinearGradientBrush>
+
     <Color x:Key="backgroundColorDef">#c2d7f5</Color>
     <StaticResource x:Key="backgroundColorRes" ResourceKey="backgroundColorDef"/>
     <SolidColorBrush x:Key="BackgroundColor" Color="{DynamicResource backgroundColorRes}"/>

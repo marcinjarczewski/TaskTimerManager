@@ -193,4 +193,15 @@
         </Style.Triggers>-->
     </Style>
 
+
+    <Style x:Key="selectedClientRowTemplate" TargetType="TextBlock">
+        <Setter Property="Background" Value="DarkOrange"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+        <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+        <Setter Property="Background" Value="#a6aeb5"></Setter>
+        <Setter Property="Foreground" Value="BlueViolet"></Setter>
+        <Setter Property="FontSize" Value="18"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+    </Style>
+
 </ResourceDictionary>
