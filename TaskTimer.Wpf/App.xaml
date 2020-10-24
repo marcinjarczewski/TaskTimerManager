@@ -15,6 +15,8 @@
                 <ResourceDictionary x:Name="appStyle" Source="Themes/AppStyle.xaml" />
                 <ResourceDictionary x:Name="brushes" Source="Themes/Brushes.xaml" />
                 <ResourceDictionary x:Name="controls" Source="Themes/Controls.xaml" />
+                <ResourceDictionary x:Name="MainViewTheme" Source="Themes/Views/MainViewTheme.xaml" />
+                <ResourceDictionary x:Name="TaskItemTheme" Source="Themes/Views/TaskItemTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

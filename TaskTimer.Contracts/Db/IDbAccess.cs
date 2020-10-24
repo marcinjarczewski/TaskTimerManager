@@ -21,5 +21,11 @@ namespace TaskTimer.Contracts.Db
         void AddClient(DbClientDto client);
 
         void EditClient(DbClientDto client);
+
+        List<DbTaskDto> GetActiveTasks();
+
+        void EditTask(DbTaskDto task);
+
+        int AddTask(DbTaskDto task);
     }
 }

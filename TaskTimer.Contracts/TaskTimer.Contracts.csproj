@@ -44,6 +44,7 @@
     <Compile Include="Bootstrappers\IScreenViewModel.cs" />
     <Compile Include="Bootstrappers\IShell.cs" />
     <Compile Include="Bootstrappers\ShellMenuItem.cs" />
+    <Compile Include="Db\DbTaskDto.cs" />
     <Compile Include="Db\DbConfigDto.cs" />
     <Compile Include="Db\DbClientDto.cs" />
     <Compile Include="Db\DbProjectDto.cs" />

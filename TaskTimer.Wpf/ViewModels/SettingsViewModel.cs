@@ -15,22 +15,6 @@ namespace TaskTimer.Wpf.ViewModels
         private readonly IDbAccess _database;
         private readonly IMapper _mapper;
 
-        private string _SourceFolderPath;
-
-        public string SourceFolderPath
-        {
-            get { return _SourceFolderPath; }
-            set { _SourceFolderPath = value; NotifyOfPropertyChange(() => SourceFolderPath); }
-        }
-
-        private string _TargetFolderPath;
-
-        public string TargetFolderPath
-        {
-            get { return _TargetFolderPath; }
-            set { _TargetFolderPath = value; NotifyOfPropertyChange(() => TargetFolderPath); }
-        }
-
         private bool _IsInvoiceHidden;
 
         public bool IsInvoiceHidden
@@ -74,36 +58,14 @@ namespace TaskTimer.Wpf.ViewModels
         public void Init()
         {
             var config = _database.GetConfig();
-            SourceFolderPath = config.SourceFolderPath;
-            TargetFolderPath = config.TargetFolderPath;
         }
 
         public void Save()
         {
             var config = new DbConfigDto
             {
-                SourceFolderPath = SourceFolderPath,
-                TargetFolderPath = TargetFolderPath
             };
             _database.SaveConfig(config);
-        }
-
-        public void SourceFolderPicker()
-        {
-            //var dlg = new VistaFolderBrowserDialog();
-            //if (dlg.ShowDialog() == true)
-            //{
-            //    SourceFolderPath = dlg.SelectedPath;
-            //}
-        }
-
-        public void TargetFolderPicker()
-        {
-            //var dlg = new VistaFolderBrowserDialog();
-            //if (dlg.ShowDialog() == true)
-            //{
-            //    TargetFolderPath = dlg.SelectedPath;
-            //}
         }
     }
 }

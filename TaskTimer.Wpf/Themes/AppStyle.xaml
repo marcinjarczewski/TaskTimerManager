@@ -11,102 +11,6 @@
         <Setter Property="Background" Value="{DynamicResource MenuColor}"></Setter>
     </Style>
 
-    <DataTemplate x:Key="ClientDataTemplate" >
-        <Border Name="ClientBorder" BorderBrush="#8a8a8a" BorderThickness="4"
-             CornerRadius="4" Margin="4,2">
-            <!--<StackPanel Orientation="Horizontal">
-                <StackPanel Margin="0,0,0,0">
-                    <TextBlock HorizontalAlignment="Stretch" Name="TBName"  Padding="2,10,5,2"
-               FontSize="18"
-                FontWeight="Bold" Foreground="Green"
-                Text="{Binding Path=Name}" Height="56">
-                    </TextBlock>
-                    <TextBlock  Padding="2,0,5,2"  Name="TBDescription" Foreground="Green"
-               Text="{Binding Path=Priority}" >
-                    </TextBlock>
-                </StackPanel>
-            </StackPanel>-->
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40"></RowDefinition>
-                    <RowDefinition Height="20"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" HorizontalAlignment="Stretch" Name="TBName"  Padding="2,10,5,2"
-               FontSize="18"
-                FontWeight="Bold" Foreground="Green"
-                Text="{Binding Path=Name}">
-                </TextBlock>
-                <TextBlock  Grid.Row="1"  Padding="2,0,5,0" HorizontalAlignment="Stretch"  Name="TBDescription" Foreground="Green"
-               Text="{Binding Path=Priority}" ></TextBlock>
-            </Grid>
-        </Border>
-        <DataTemplate.Triggers>
-            <EventTrigger RoutedEvent="Border.MouseEnter">
-                <BeginStoryboard>
-                    <Storyboard>
-                        <ColorAnimation  Storyboard.TargetName="ClientBorder" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" 
-                    To="#2a4798" Duration="0:0:0.25"/>
-                        <ColorAnimation  Storyboard.TargetName="TBName" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" 
-                    To="#2a4798" Duration="0:0:0.25"/>
-                        <ColorAnimation  Storyboard.TargetName="TBDescription" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" 
-                    To="#2a4798" Duration="0:0:0.25"/>
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger>
-            <EventTrigger RoutedEvent="Border.MouseLeave">
-                <BeginStoryboard>
-                    <Storyboard>
-                        <ColorAnimation  Storyboard.TargetName="ClientBorder" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" 
-                    To="#8a8a8a" Duration="0:0:0.25"/>
-                        <ColorAnimation Storyboard.TargetName="TBName" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" 
-                    To="Green" Duration="0:0:0.25"/>
-                        <ColorAnimation  Storyboard.TargetName="TBDescription" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" 
-                    To="Green" Duration="0:0:0.25"/>
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger>
-        </DataTemplate.Triggers>
-    </DataTemplate>
-
-    <Style  x:Key="ClientListBox" TargetType="{x:Type ListBox}">
-        <Setter Property="Background" Value="{DynamicResource MenuColor}"></Setter>
-    </Style>
-    <Style x:Key="ClientListBoxItem"
-       TargetType="{x:Type ListBoxItem}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                    <Border x:Name="Bd"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="{TemplateBinding Background}"
-                            Padding="{TemplateBinding Padding}"
-                            >
-                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition Property="Selector.IsSelectionActive"
-                                            Value="True" />
-                                <Condition Property="IsSelected"
-                                            Value="True" />
-                            </MultiTrigger.Conditions>
-                            <Setter Property="Background"
-                                    TargetName="Bd"
-                                    Value="{DynamicResource ClientBrush}" >
-                            </Setter>
-                        </MultiTrigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    
     <Style x:Key="NavListBoxItem"
        TargetType="{x:Type ListBoxItem}">
         <Setter Property="Template">
@@ -210,4 +114,6 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
+
 </ResourceDictionary>

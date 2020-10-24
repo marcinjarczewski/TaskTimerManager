@@ -31,8 +31,14 @@ namespace TaskTimer.Wpf.Bootstrappers
                 cfg.CreateMap<DbLogDto, DbLogModel>();
 
                 cfg.CreateMap<DbClientModel, DbClientDto>();
+                cfg.CreateMap<DbClientDto, DbClientModel>();
                 cfg.CreateMap<DbClientDto, ClientModel>();
                 cfg.CreateMap<ClientModel, DbClientDto>();
+
+                cfg.CreateMap<DbTaskModel, DbTaskDto>();
+                cfg.CreateMap<DbTaskDto, DbTaskModel>();
+                cfg.CreateMap<DbTaskDto, TaskModel>();
+                cfg.CreateMap<TaskModel, DbTaskDto>();
             });
 
             return _configuraton.CreateMapper();

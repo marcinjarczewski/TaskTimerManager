@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SQLite;
 
-namespace TaskTimer.Wpf.Models
+namespace TaskTimer.Database.DbModels
 {
-    public class TaskModel
+    public class DbTaskModel
     {
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
         public string Subject { get; set; }
@@ -22,11 +19,11 @@ namespace TaskTimer.Wpf.Models
 
         public string ClientName { get; set; }
 
-        public DateTime AddedDate { get; set; }
+        public string AddedDate { get; set; }
 
-        public DateTime StartDate { get; set; }
+        public string StartDate { get; set; }
 
-        public DateTime? EndDate { get; set; }
+        public string EndDate { get; set; }
 
         public int TimeInSeconds { get; set; }
 
@@ -40,6 +37,6 @@ namespace TaskTimer.Wpf.Models
 
         public bool IsActive { get; set; }
 
-        public DateTime? LastExportDate { get; set; }
+        public string LastExportDate { get; set; }
     }
 }

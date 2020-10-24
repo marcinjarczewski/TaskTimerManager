@@ -31,6 +31,7 @@ namespace TaskTimer.Database.Services
             database.CreateTable<DbLogModel>();
             database.CreateTable<DbConfigModel>();
             database.CreateTable<DbClientModel>();
+            database.CreateTable<DbTaskModel>();
             if (database.Table<DbConfigModel>().FirstOrDefault(u => u.Id == 1) == null)
             {
                 database.Insert(new DbConfigModel
@@ -76,6 +77,13 @@ namespace TaskTimer.Database.Services
             return _mapper.Map<List<DbClientDto>>(models);
         }
 
+        public List<DbTaskDto> GetActiveTasks()
+        {
+            var database = GetConnection();
+            var models = database.Table<DbTaskModel>().Where(t => t.IsActive && !t.IsEnded).ToList();
+            return _mapper.Map<List<DbTaskDto>>(models);
+        }
+
         /// <summary>
         /// Get single record from db. Only 1 record is used by config.
         /// </summary>
@@ -107,6 +115,39 @@ namespace TaskTimer.Database.Services
             }
         }
 
+        public int AddTask(DbTaskDto task)
+        {
+            var taskModel = _mapper.Map<DbTaskModel>(task);
+            var database = GetConnection();
+            lock (locker)
+            {
+                database.Insert(taskModel);
+                database.Commit();
+                return taskModel.Id;
+            }
+        }
+
+        public void EditTask(DbTaskDto task)
+        {
+            var database = GetConnection();
+            lock (locker)
+            {
+                var mappedTask = _mapper.Map<DbTaskModel>(task);
+                var dbTask = database.Table<DbTaskModel>().FirstOrDefault(u => u.Id == task.Id);
+                dbTask.Subject = mappedTask.Subject;
+                dbTask.IsEnded = mappedTask.IsEnded;
+                dbTask.EndDate = mappedTask.EndDate;
+                dbTask.IsPaused = mappedTask.IsPaused;
+                dbTask.Description = mappedTask.Description;
+                dbTask.InvoiceDescription = mappedTask.InvoiceDescription;
+                dbTask.InvoiceSubject = mappedTask.InvoiceSubject;
+                dbTask.TimeInSeconds = mappedTask.TimeInSeconds;
+                dbTask.ReportedTimeInSeconds = mappedTask.ReportedTimeInSeconds;
+                dbTask.InvoiceReportedTimeInSeconds = mappedTask.InvoiceReportedTimeInSeconds;
+                database.Update(dbTask);
+            }
+        }
+
         public void EditClient(DbClientDto client)
         {
             var database = GetConnection();
@@ -116,6 +157,7 @@ namespace TaskTimer.Database.Services
                 dbClient.Name = client.Name;
                 dbClient.SearchName = client.SearchName;
                 dbClient.Priority = client.Priority;
+                dbClient.IsActive = client.IsActive;
                 database.Update(dbClient);
                 database.Commit();
             }

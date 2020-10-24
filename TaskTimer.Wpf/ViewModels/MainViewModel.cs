@@ -13,7 +13,7 @@ using System.Collections.ObjectModel;
 
 namespace TaskTimer.Wpf.ViewModels
 {
-    public class MainViewModel : PropertyChangedBase, IScreenViewModel
+    public class MainViewModel : Screen, IScreenViewModel
     {
         private IDbAccess _database;
         private IMapper _mapper;
@@ -28,6 +28,15 @@ namespace TaskTimer.Wpf.ViewModels
             set { _Clients = value;  }
         }
 
+        private BindableCollection<TaskItemViewModel> _tasks;
+
+        public BindableCollection<TaskItemViewModel> Tasks
+        {
+            get { return _tasks; }
+            set { _tasks = value; }
+        }
+
+
         private ClientModel _SelectedClient;
 
         public ClientModel SelectedClient
@@ -37,6 +46,7 @@ namespace TaskTimer.Wpf.ViewModels
                 _SelectedClient = value;
                 NotifyOfPropertyChange(() => SelectedClient);
                 NotifyOfPropertyChange(() => CanEditSelectedClient);
+                NotifyOfPropertyChange(() => CanAddTask);
             }
         }
 
@@ -50,17 +60,19 @@ namespace TaskTimer.Wpf.ViewModels
             _database = db;
             _mapper = mapper;
             _navigator = navigator;
-            _Clients = new BindableCollection<ClientModel>();
-            _mapper.Map(_database.GetClients(), Clients);
         }
         /// <summary>
         /// Calls every time when view is activated.
         /// </summary>
         public void Init()
         {
-            var config = _database.GetConfig();
-            //SourcePath = config.SourceFolderPath;
-            //TargetPath = config.TargetFolderPath;
+            Clients = new BindableCollection<ClientModel>();
+            var clients = _database.GetClients();
+            _mapper.Map(clients.OrderByDescending(c => c.Priority).ToList(), Clients);
+            var tasks = _database.GetActiveTasks();
+            Tasks = new BindableCollection<TaskItemViewModel>();
+            var taskViewModels = tasks.Select(t => new TaskItemViewModel(_mapper, _database, _navigator, _mapper.Map<TaskModel>(t), Tasks)).ToList();
+            Tasks.AddRange(taskViewModels);
         }
 
         public void AddNewClient()
@@ -72,6 +84,22 @@ namespace TaskTimer.Wpf.ViewModels
                 _navigator.ShowDialog("Nowy klient", "Nowy klient został dodany");
             }
         }
+
+        public void AddTask()
+        {
+            var task = new DbTaskDto
+            {
+                AddedDate = DateTime.Now,
+                StartDate = DateTime.Now,
+                IsActive = true,
+                ClientName = SelectedClient.Name,             
+            };
+            task.Id = _database.AddTask(task);
+            Tasks.Add(new TaskItemViewModel(_mapper, _database, _navigator, _mapper.Map<TaskModel>(task), Tasks));
+            NotifyOfPropertyChange(() => Tasks);
+        }
+
+        public bool CanAddTask { get { return SelectedClient != null; } }
 
         public bool CanEditSelectedClient { get { return SelectedClient != null; } }
 
@@ -87,6 +115,11 @@ namespace TaskTimer.Wpf.ViewModels
                 SelectedClient.Priority = client.Priority;
                 _navigator.ShowDialog("Nowy klient", "Edycja klienta zapisana");
             }
+        }
+
+        protected override void OnDeactivate(bool close)
+        {
+
         }
     }
 }

@@ -8,5 +8,9 @@ namespace TaskTimer.Database.DbModels
         public int Id { get; set; }
 
         public bool? AutoSave { get; set; }
+
+        public bool? CopyDataToInvoice { get; set; }
+
+        public bool? DisableInvoices { get; set; }
     }
 }

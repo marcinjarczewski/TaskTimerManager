@@ -24,6 +24,7 @@ namespace TaskTimer.Wpf.Bootstrappers
                 .Register(Component.For<MainViewModel>())
                 .Register(Component.For<DialogViewModel>())
                 .Register(Component.For<SettingsViewModel>())
+                .Register(Component.For<TaskItemViewModel>())
                 .Register(Component.For<IModule>().ImplementedBy<BaseModule>())
                 .Register(Component.For<IShell>().ImplementedBy<BaseShell>())
                 .Register(Component.For<ShellViewModel>() /*.LifeStyle.Singleton*/)

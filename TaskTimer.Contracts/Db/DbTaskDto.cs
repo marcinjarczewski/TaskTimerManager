@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace TaskTimer.Wpf.Models
+namespace TaskTimer.Contracts.Db
 {
-    public class TaskModel
+    public class DbTaskDto
     {
         public int Id { get; set; }
 
