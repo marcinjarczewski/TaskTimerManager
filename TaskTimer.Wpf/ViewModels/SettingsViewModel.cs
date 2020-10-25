@@ -15,31 +15,21 @@ namespace TaskTimer.Wpf.ViewModels
         private readonly IDbAccess _database;
         private readonly IMapper _mapper;
 
-        private bool _IsInvoiceHidden;
+        private bool _DisableInvoices;
 
-        public bool IsInvoiceHidden
+        public bool DisableInvoices
         {
-            get { return _IsInvoiceHidden; }
-            set { _IsInvoiceHidden = value; }
+            get { return _DisableInvoices; }
+            set { _DisableInvoices = value; }
         }
 
-        private bool _IsInvoiceDefault;
+        private bool _CopyDataToInvoice;
 
-        public bool IsInvoiceDefault
+        public bool CopyDataToInvoice
         {
-            get { return _IsInvoiceDefault; }
-            set { _IsInvoiceDefault = value; }
+            get { return _CopyDataToInvoice; }
+            set { _CopyDataToInvoice = value; }
         }
-
-
-        private DbProjectDto Projects;
-
-        public DbProjectDto MyProperty
-        {
-            get { return Projects; }
-            set { Projects = value; }
-        }
-
 
         /// <summary>
         /// Calls just once.
@@ -64,6 +54,8 @@ namespace TaskTimer.Wpf.ViewModels
         {
             var config = new DbConfigDto
             {
+                CopyDataToInvoice = CopyDataToInvoice,
+                DisableInvoices = DisableInvoices
             };
             _database.SaveConfig(config);
         }

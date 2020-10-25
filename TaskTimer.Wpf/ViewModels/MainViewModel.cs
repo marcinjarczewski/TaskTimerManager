@@ -117,9 +117,15 @@ namespace TaskTimer.Wpf.ViewModels
             }
         }
 
+
+
         protected override void OnDeactivate(bool close)
         {
-
+            Tasks.Select(t =>
+            {
+                _database.EditTask(_mapper.Map<DbTaskDto>(t));
+                return 1;
+            });
         }
     }
 }

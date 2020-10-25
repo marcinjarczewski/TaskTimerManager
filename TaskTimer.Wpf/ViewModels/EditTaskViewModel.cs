@@ -20,12 +20,26 @@ namespace TaskTimer.Wpf.ViewModels
 
         private INavigator _navigator;
 
-        public bool IsEditClient { get; set; }
+        public bool ReportedTimeIsVisible { get; set; }
 
+        public bool DateEndIsVisible { get; set; }
 
-        public EditTaskViewModel(INavigator navigator, DbTaskDto task)
+        public bool TimeIsVisible { get; set; }
+
+        public bool InvoiceTimeIsVisible { get; set; }
+
+        public bool InvoiceIsVisible { get; set; }
+
+        public bool InvoiceDescriptionIsVisible { get; set; }
+
+        public EditTaskViewModel(INavigator navigator, DbTaskDto task, bool showInvoices)
         {
-            IsEditClient = true;
+            ReportedTimeIsVisible = task.IsEnded;
+            TimeIsVisible = task.IsEnded;
+            InvoiceTimeIsVisible = task.IsEnded && showInvoices;
+            DateEndIsVisible = task.IsEnded;
+            InvoiceIsVisible = showInvoices;
+            InvoiceDescriptionIsVisible = showInvoices;
             Task = task;
             _navigator = navigator;
         }
@@ -37,14 +51,37 @@ namespace TaskTimer.Wpf.ViewModels
                 callback(true);
                 return;
             }
-            callback(_navigator.ShowDialog(true, "Anuluj tworzenie klienta", "Czy na pewno chcesz anulować tworzenie klienta?"));         
+            if(!Task.IsActive)
+            {
+                var res = _navigator.ShowDialog(true, "Usuń zadanie", "Czy na pewno chcesz usunąć zadanie?");
+                if(!res)
+                {
+                    Task.IsActive = true;
+                }
+                callback(res);
+                return;
+            }
+            callback(_navigator.ShowDialog(true, "Anuluj edycji zadania", "Czy na pewno chcesz anulować edycję zadania?"));         
         }
 
         public void Init()
         {
         }
 
-        public void SaveClient()
+
+        public void Cancel()
+        {
+            TryClose(false);
+        }
+
+
+        public void Delete()
+        {
+            Task.IsActive = false;
+            TryClose(true);
+        }
+
+        public void SaveTask()
         {
             _isSaved = true;
             string validateError = Validate();
@@ -54,7 +91,7 @@ namespace TaskTimer.Wpf.ViewModels
             }
             else
             {
-                _navigator.ShowDialog("Walidacja klienta", validateError);
+                _navigator.ShowDialog("Walidacja zadania", validateError);
             }
         }
 

@@ -6,12 +6,9 @@ namespace TaskTimer.Contracts
     {
         void ShowDialog(string title, string message);
 
-        DbProjectDto EditProject(DbProjectDto project = null);
-
         DbClientDto NewClient(DbClientDto client = null);
 
-        DbTaskDto NewTimer(DbTaskDto client = null);
-
+        DbTaskDto NewTimer(DbTaskDto timer, bool showInvoices);
 
         bool ShowDialog(bool isConfirm, string title, string message);
     }

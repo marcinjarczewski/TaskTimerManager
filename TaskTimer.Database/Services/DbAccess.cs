@@ -99,6 +99,8 @@ namespace TaskTimer.Database.Services
         {
             var database = GetConnection();
             var model = database.Table<DbConfigModel>().FirstOrDefault() ?? new DbConfigModel();
+            model.CopyDataToInvoice = config.CopyDataToInvoice;
+            model.DisableInvoices = config.DisableInvoices;
             //set values here        
             database.Update(model);
             database.Commit();

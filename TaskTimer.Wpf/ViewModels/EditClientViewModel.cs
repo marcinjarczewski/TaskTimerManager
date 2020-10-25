@@ -69,6 +69,11 @@ namespace TaskTimer.Wpf.ViewModels
             }
         }
 
+        public void Cancel()
+        {
+                TryClose(false);
+        }
+
         public string Validate()
         {
             if(string.IsNullOrEmpty(Client.Name))

@@ -1,0 +1,161 @@
+﻿<Window x:Class="TaskTimer.Wpf.Views.EditTaskView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:design="clr-namespace:TaskTimer.Wpf.DesignTime.Models" 
+        xmlns:trans= "clr-namespace:TaskTimer.Wpf.Properties"
+        xmlns:helpers="clr-namespace:TaskTimer.Wpf.Helpers" 
+        xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform"
+        mc:Ignorable="d" FontSize="16"    
+        d:DataContext="{d:DesignInstance Type=design:DesignDialogViewModel, IsDesignTimeCreatable=True}"
+        cal:Bind.AtDesignTime="True"
+        Title="Edycja stopera" Height="610" Width="700">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50px"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" MaxWidth="200"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Nazwa klienta:"/>
+                <Grid Margin="0,2" Grid.Column="1" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MaxWidth="300"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Height="Auto" IsEnabled="False"  VerticalContentAlignment="Center" x:Name="Task_ClientName"></TextBox>
+                </Grid>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" MaxWidth="200"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Tytuł:"/>
+                <Grid Margin="0,2" Grid.Column="1" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MaxWidth="300"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Height="Auto"  VerticalContentAlignment="Center" x:Name="Task_Subject"></TextBox>
+                </Grid>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" MaxWidth="200"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock  Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Opis:"/>
+                <Grid Height="100" Margin="0,2" Grid.Column="1" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MaxWidth="300"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Height="Auto" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" AcceptsReturn="True"  VerticalContentAlignment="Center" x:Name="Task_Description"></TextBox>
+                </Grid>
+            </Grid>
+            <Grid x:Name="InvoiceIsVisible">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" MaxWidth="200"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Tytuł faktura:"/>
+                <Grid Margin="0,2" Grid.Column="1" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MaxWidth="300"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Height="Auto"   VerticalContentAlignment="Center" x:Name="Task_InvoiceSubject"></TextBox>
+                </Grid>
+            </Grid>
+            <Grid x:Name="InvoiceDescriptionIsVisible">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" MaxWidth="200"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Opis faktura:"/>
+                <Grid Height="100" Margin="0,2" Grid.Column="1" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MaxWidth="300"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Height="Auto" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" AcceptsReturn="True"   VerticalContentAlignment="Center" x:Name="Task_InvoiceDescription"></TextBox>
+                </Grid>
+            </Grid>
+            <Grid x:Name="TimeIsVisible">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" MaxWidth="200"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Czas zadania:"/>
+                <Grid Margin="0,2" Grid.Column="1" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MaxWidth="300"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Height="Auto"  VerticalContentAlignment="Center" x:Name="Task_TimeInSeconds"></TextBox>
+                </Grid>
+            </Grid>
+            <Grid  x:Name="ReportedTimeIsVisible">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*" MaxWidth="200"/>
+                    <ColumnDefinition Width="19*" />
+                    <ColumnDefinition Width="227*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Zaraportowany czas zadania:" Margin="0,0,0,-1"/>
+                <Grid Margin="0,2" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MaxWidth="300"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Height="Auto"  VerticalContentAlignment="Center" x:Name="Task_ReportedTimeInSeconds"></TextBox>
+                </Grid>
+            </Grid>
+            <Grid x:Name="InvoiceTimeIsVisible">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" MaxWidth="200"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Zaraportowany czas zadania na fakturze:"/>
+                <Grid Margin="0,2" Grid.Column="1" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MaxWidth="300"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Height="Auto"  VerticalContentAlignment="Center" x:Name="Task_InvoiceReportedTimeInSeconds"></TextBox>
+                </Grid>
+            </Grid>
+            <Grid> 
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" MaxWidth="200"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Data rozpoczęcia:"/>
+                <Grid Margin="0,2" Grid.Column="1" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MaxWidth="300"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Height="Auto"  VerticalContentAlignment="Center" x:Name="Task_StartDate"></TextBox>
+                </Grid>
+            </Grid>
+            <Grid x:Name="DateEndIsVisible">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" MaxWidth="200"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Data zakończenia:"/>
+                <Grid Margin="0,2" Grid.Column="1" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MaxWidth="300"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Height="Auto"  VerticalContentAlignment="Center" x:Name="Task_EndDate"></TextBox>
+                </Grid>
+            </Grid>
+        </StackPanel>
+        <DockPanel Grid.Row="1" HorizontalAlignment="Center" Grid.ColumnSpan="3">
+            <Button Height="35"  Width="{Binding ActualWidth, ElementName=parentElementName}" x:Name="SaveTask"
+                    Style="{StaticResource btnOk}">Zapisz</Button>
+            <Button Height="35" Margin="14,0,0,0"  Width="{Binding ActualWidth, ElementName=parentElementName}" x:Name="Cancel" 
+                  Content="{x:Static trans:Resources.Cancel}"  Style="{StaticResource btnCancel}"></Button>
+            <Button Height="35" Margin="14,0,0,0"  Width="{Binding ActualWidth, ElementName=parentElementName}" x:Name="Delete" 
+                  Content="Usuń"  Style="{StaticResource btnDelete}"></Button>
+        </DockPanel>
+    </Grid>
+</Window>

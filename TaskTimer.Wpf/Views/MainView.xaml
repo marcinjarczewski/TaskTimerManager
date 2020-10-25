@@ -10,7 +10,7 @@
              mc:Ignorable="d" 
               d:DataContext="{d:DesignInstance Type=design:DesignMainViewModel, IsDesignTimeCreatable=True}"
              cal:Bind.AtDesignTime="True"
-             Style="{StaticResource mainTemplate}" d:DesignWidth="800" d:DesignHeight="500">
+             Style="{StaticResource mainTemplate}" d:DesignWidth="1200" d:DesignHeight="500">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"></ColumnDefinition>
@@ -34,7 +34,7 @@
                 <ColumnDefinition Width="5"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBlock Style="{StaticResource tblDescription}" x:Name="SelectedClient_Name" Grid.Column="0"></TextBlock>
-            <Button Grid.Column="1" Margin="0,3,0,3" x:Name="AddTimer"
+            <Button Grid.Column="1" Margin="0,3,0,3" x:Name="AddTask"
                     HorizontalAlignment="Right"  Width="{Binding ActualWidth, ElementName=parentElementName}" Style="{StaticResource btnAdd}">Dodaj stoper</Button>
         </Grid>
         <Grid  Grid.Column="1" Grid.Row="2">

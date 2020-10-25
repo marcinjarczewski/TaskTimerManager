@@ -13,11 +13,6 @@ namespace TaskTimer.Wpf.Modules
         {
         }
 
-        public DbProjectDto EditProject(DbProjectDto project = null)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public DbClientDto NewClient(DbClientDto client = null)
         {
             var dialog = client != null ? new EditClientViewModel(this, client) : new EditClientViewModel(this);
@@ -29,16 +24,15 @@ namespace TaskTimer.Wpf.Modules
             return dialog.Client;
         }
 
-        public DbTaskDto NewTimer(DbTaskDto client = null)
+        public DbTaskDto NewTimer(DbTaskDto timer, bool showInvoices)
         {
-            return null;
-            //var dialog = client != null ? new EditClientViewModel(this, client) : new EditClientViewModel(this);
-            //var result = this.manager.ShowDialog(dialog) ?? false;
-            //if (!result)
-            //{
-            //    return null;
-            //}
-            //return dialog.Client;
+            var dialog = new EditTaskViewModel(this, timer, showInvoices);
+            var result = this.manager.ShowDialog(dialog) ?? false;
+            if (!result)
+            {
+                return null;
+            }
+            return dialog.Task;
         }
 
         public void ShowDialog(string title, string text)

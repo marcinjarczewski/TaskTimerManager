@@ -9,7 +9,7 @@
         d:DataContext="{d:DesignInstance Type=design:DesignShellViewModel, IsDesignTimeCreatable=True}"
         cal:Bind.AtDesignTime="True"
         Style="{StaticResource MainWindow}"
-        Title="MainWindow" Height="650" Width="800">
+        Title="MainWindow" Height="650" Width="1200">
     <Grid Style="{StaticResource mainGrid}">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>

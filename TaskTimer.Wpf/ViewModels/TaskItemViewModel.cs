@@ -40,6 +40,7 @@ namespace TaskTimer.Wpf.ViewModels
             get { return _Time; }
             set {
                 _Time = value;
+                Task.TimeInSeconds = value;
                 NotifyOfPropertyChange(() => TimeString);
                 }
         }
@@ -99,7 +100,20 @@ namespace TaskTimer.Wpf.ViewModels
 
         public void Edit()
         {
-            _navigator.ShowDialog(Task.ClientName, Task.Subject);
+            var taskDto = _navigator.NewTimer(_mapper.Map<DbTaskDto>(Task),!_database.GetConfig().DisableInvoices && !_database.GetConfig().CopyDataToInvoice);
+            if (taskDto != null)
+            {
+                _database.EditTask(taskDto);
+                Task.Subject = taskDto.Subject;
+                Task.Description = taskDto.Description;
+                Task.InvoiceDescription = taskDto.InvoiceDescription;
+                Task.ReportedTimeInSeconds = taskDto.ReportedTimeInSeconds;
+                Task.InvoiceReportedTimeInSeconds = taskDto.ReportedTimeInSeconds;
+                Task.InvoiceSubject = taskDto.InvoiceSubject;
+                Task.StartDate = taskDto.StartDate;
+                NotifyOfPropertyChange(() => Task.Subject);
+            }
+            //_navigator.ShowDialog(Task.ClientName, Task.Subject);
         }
 
         public void Pause()
@@ -132,8 +146,12 @@ namespace TaskTimer.Wpf.ViewModels
         {
             Task.TimeInSeconds = Time;
             Task.IsEnded = true;
-            _database.EditTask(_mapper.Map<DbTaskDto>(Task));
-            Parent.Remove(this);
+            var taskDto = _navigator.NewTimer(_mapper.Map<DbTaskDto>(Task), _database.GetConfig().AutoSave ?? true);
+            if (taskDto != null)
+            {
+                _database.EditTask(taskDto);
+                Parent.Remove(this);
+            }
         }
     }
 }
