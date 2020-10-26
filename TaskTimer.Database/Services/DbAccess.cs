@@ -92,6 +92,7 @@ namespace TaskTimer.Database.Services
         {
             var database = GetConnection();
             var model = database.Table<DbConfigModel>().FirstOrDefault();
+            var temp = database.Table<DbConfigModel>().ToList();
             return _mapper.Map<DbConfigDto>(model);
         }
 
@@ -101,6 +102,7 @@ namespace TaskTimer.Database.Services
             var model = database.Table<DbConfigModel>().FirstOrDefault() ?? new DbConfigModel();
             model.CopyDataToInvoice = config.CopyDataToInvoice;
             model.DisableInvoices = config.DisableInvoices;
+            model.RoundReportedTime = config.RoundReportedTime;
             //set values here        
             database.Update(model);
             database.Commit();

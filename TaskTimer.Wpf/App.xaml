@@ -11,6 +11,7 @@
                 </ResourceDictionary>
                 <ResourceDictionary>
                     <helpers:VisibilityConverter x:Key="visibilityConverter"/>
+                    <helpers:TimerConverter x:Key="timerConverter"/>
                 </ResourceDictionary>
                 <ResourceDictionary x:Name="appStyle" Source="Themes/AppStyle.xaml" />
                 <ResourceDictionary x:Name="brushes" Source="Themes/Brushes.xaml" />

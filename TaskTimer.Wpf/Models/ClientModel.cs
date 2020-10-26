@@ -31,7 +31,7 @@ namespace TaskTimer.Wpf.Models
             set { _Name = value; OnPropertyChanged("Name"); }
         }
 
-
+        
         public string SearchName { get; set; }
 
         public DateTime AddedDate { get; set; }

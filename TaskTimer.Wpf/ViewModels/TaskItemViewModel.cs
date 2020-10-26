@@ -146,7 +146,26 @@ namespace TaskTimer.Wpf.ViewModels
         {
             Task.TimeInSeconds = Time;
             Task.IsEnded = true;
-            var taskDto = _navigator.NewTimer(_mapper.Map<DbTaskDto>(Task), _database.GetConfig().AutoSave ?? true);
+           var config = _database.GetConfig();
+            if (config.RoundReportedTime.HasValue && config.RoundReportedTime.Value != 0)
+            {
+                var configValueInMinutes = config.RoundReportedTime.Value * 60;
+                if (Task.TimeInSeconds % configValueInMinutes > 0)
+                {
+                    Task.ReportedTimeInSeconds = (Task.TimeInSeconds / configValueInMinutes + 1) * configValueInMinutes;
+                }
+                else
+                {
+                    Task.ReportedTimeInSeconds = configValueInMinutes * 60;
+                }
+            }
+            if (config.CopyDataToInvoice)
+            {
+                Task.InvoiceDescription = Task.Description;
+                Task.InvoiceReportedTimeInSeconds = Task.ReportedTimeInSeconds;
+                Task.InvoiceSubject = Task.Subject;
+            }
+            var taskDto = _navigator.NewTimer(_mapper.Map<DbTaskDto>(Task), !config.DisableInvoices || config.CopyDataToInvoice);
             if (taskDto != null)
             {
                 _database.EditTask(taskDto);

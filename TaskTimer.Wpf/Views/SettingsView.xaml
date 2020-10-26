@@ -46,6 +46,20 @@
                     </CheckBox>
                 </Grid>
             </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" MaxWidth="200"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock  Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Zaokrąglaj czas do pełnych minut (np. 30):"/>
+                <Grid Margin="0,2" Grid.Column="1" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MaxWidth="300"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="RoundReportedTime">
+                    </TextBox>
+                </Grid>
+            </Grid>
         </StackPanel>
         <DockPanel Grid.Row="1" HorizontalAlignment="Center" Grid.ColumnSpan="3">
             <Button x:Name="Save"  Style="{StaticResource btnOk}"  Grid.Column="0" Grid.Row="1" >Save settings</Button>

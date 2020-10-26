@@ -31,6 +31,13 @@ namespace TaskTimer.Wpf.ViewModels
             set { _CopyDataToInvoice = value; }
         }
 
+        private int _RoundReportedTime;
+
+        public int RoundReportedTime
+        {
+            get { return _RoundReportedTime; }
+            set { _RoundReportedTime = value; }
+        }
         /// <summary>
         /// Calls just once.
         /// </summary>
@@ -55,7 +62,8 @@ namespace TaskTimer.Wpf.ViewModels
             var config = new DbConfigDto
             {
                 CopyDataToInvoice = CopyDataToInvoice,
-                DisableInvoices = DisableInvoices
+                DisableInvoices = DisableInvoices,
+                RoundReportedTime = RoundReportedTime
             };
             _database.SaveConfig(config);
         }

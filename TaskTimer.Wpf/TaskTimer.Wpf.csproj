@@ -87,6 +87,7 @@
     <Compile Include="DesignTime\Models\DesignDialogViewModel.cs" />
     <Compile Include="DesignTime\Models\DesignMainViewModel.cs" />
     <Compile Include="DesignTime\Models\DesignShellViewModel.cs" />
+    <Compile Include="Helpers\TimerConverter.cs" />
     <Compile Include="Helpers\VisibilityConverter.cs" />
     <Compile Include="Models\TaskModel.cs" />
     <Compile Include="Models\ClientModel.cs" />

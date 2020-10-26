@@ -8,6 +8,8 @@
 
         public bool CopyDataToInvoice { get; set; }
 
+        public int? RoundReportedTime { get; set; }
+
         public bool? AutoSave { get; set; }
     }
 }

@@ -11,6 +11,8 @@ namespace TaskTimer.Database.DbModels
 
         public bool? CopyDataToInvoice { get; set; }
 
+        public int? RoundReportedTime { get; set; }
+
         public bool? DisableInvoices { get; set; }
     }
 }

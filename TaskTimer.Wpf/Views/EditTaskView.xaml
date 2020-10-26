@@ -92,7 +92,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" MaxWidth="300"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Height="Auto"  VerticalContentAlignment="Center" x:Name="Task_TimeInSeconds"></TextBox>
+                    <TextBox Height="Auto"  VerticalContentAlignment="Center" Text="{Binding Path=Task.TimeInSeconds, Converter= {StaticResource timerConverter}}"/> 
                 </Grid>
             </Grid>
             <Grid  x:Name="ReportedTimeIsVisible">
