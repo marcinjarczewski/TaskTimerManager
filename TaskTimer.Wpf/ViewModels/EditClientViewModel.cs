@@ -33,6 +33,13 @@ namespace TaskTimer.Wpf.ViewModels
 
         public bool IsEditClient { get; set; }
 
+        /// <summary>
+        /// for designer
+        /// </summary>
+        public EditClientViewModel()
+        {
+            Client = new DbClientDto();
+        }
 
         public EditClientViewModel(INavigator navigator, DbClientDto client)
         {

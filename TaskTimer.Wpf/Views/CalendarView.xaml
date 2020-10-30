@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="TaskTimer.Wpf.Views.CalendarView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform"
+    xmlns:design="clr-namespace:TaskTimer.Wpf.DesignTime.Models" 
+    d:DataContext="{d:DesignInstance Type=design:DesignCalendarViewModel, IsDesignTimeCreatable=True}"
+    cal:Bind.AtDesignTime="True"
+    mc:Ignorable="d"
+    d:DesignWidth="700">
+    <Grid HorizontalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!--Row 0-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="90"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0"></Button>
+            <TextBlock x:Name="MonthString" Grid.Column="1" Background="#FF1E70B8" Style="{StaticResource CalendarMonthLabel}"></TextBlock>
+            <Button Grid.Column="2"></Button>
+        </Grid>
+
+        <!--Row 1-->
+        <ListBox Grid.Row="1" Background="#FF1E70B8" HorizontalContentAlignment="Stretch"
+                 x:Name="Labels">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel IsItemsHost="True" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBoxItem Style="{StaticResource CalendarDayLabel}" >
+                <ListBoxItem.Width>
+                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type UserControl}}" Converter ="{StaticResource dayWidthConverter}" />
+                </ListBoxItem.Width>
+                Poniedziałek
+            </ListBoxItem>
+            <ListBoxItem  Style="{StaticResource CalendarDayLabel}">
+                <ListBoxItem.Width>
+                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type UserControl}}" Converter ="{StaticResource dayWidthConverter}" />
+                </ListBoxItem.Width>
+                Wtorek</ListBoxItem>
+            <ListBoxItem   Style="{StaticResource CalendarDayLabel}">
+                <ListBoxItem.Width>
+                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type UserControl}}" Converter ="{StaticResource dayWidthConverter}" />
+                </ListBoxItem.Width>
+                Środa</ListBoxItem>
+            <ListBoxItem   Style="{StaticResource CalendarDayLabel}">
+                <ListBoxItem.Width>
+                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type UserControl}}" Converter ="{StaticResource dayWidthConverter}" />
+                </ListBoxItem.Width>
+                Czwartek
+            </ListBoxItem>
+            <ListBoxItem   Style="{StaticResource CalendarDayLabel}">
+                <ListBoxItem.Width>
+                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type UserControl}}" Converter ="{StaticResource dayWidthConverter}" />
+                </ListBoxItem.Width>
+                Piątek
+            </ListBoxItem>
+            <ListBoxItem   Style="{StaticResource CalendarDayLabel}">
+                <ListBoxItem.Width>
+                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type UserControl}}" Converter ="{StaticResource dayWidthConverter}" />
+                </ListBoxItem.Width>
+                Sobota
+            </ListBoxItem>
+            <ListBoxItem   Style="{StaticResource CalendarDayLabel}">
+                <ListBoxItem.Width>
+                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type UserControl}}" Converter ="{StaticResource dayWidthConverter}" />
+                </ListBoxItem.Width>
+                Niedziela
+            </ListBoxItem>
+        </ListBox>
+        
+        <!--Row 2--> 
+        <ListBox Grid.Row="2"  HorizontalContentAlignment="Stretch"
+                 x:Name="Weeks">
+            <ListBox.ItemTemplate>
+            <DataTemplate>
+                <ContentControl
+                    Width="{Binding ActualWidth, ElementName=parentElementName}" cal:View.Model="{Binding}" HorizontalAlignment="Stretch" >
+                </ContentControl>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
+    </Grid>
+</UserControl>

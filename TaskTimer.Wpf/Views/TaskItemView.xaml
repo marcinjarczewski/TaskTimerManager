@@ -3,6 +3,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:design="clr-namespace:TaskTimer.Wpf.DesignTime.Models" 
+    d:DataContext="{d:DesignInstance Type=design:DesignTaskItemViewModel, IsDesignTimeCreatable=True}"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform"
+    cal:Bind.AtDesignTime="True"
     mc:Ignorable="d"
     d:DesignWidth="680">
 

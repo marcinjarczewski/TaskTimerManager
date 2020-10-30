@@ -84,9 +84,16 @@
     <Compile Include="Bootstrappers\Bootstrapper.cs" />
     <Compile Include="Bootstrappers\ModuleLoader.cs" />
     <Compile Include="Bootstrappers\ShellInstaller.cs" />
+    <Compile Include="DesignTime\Models\DesignClientViewModel.cs" />
+    <Compile Include="DesignTime\Models\DesignCalendarViewModel.cs" />
+    <Compile Include="DesignTime\Models\DesignWeekViewModel.cs" />
     <Compile Include="DesignTime\Models\DesignDialogViewModel.cs" />
     <Compile Include="DesignTime\Models\DesignMainViewModel.cs" />
+    <Compile Include="DesignTime\Models\DesignDayViewModel.cs" />
+    <Compile Include="DesignTime\Models\DesignTaskItemViewModel.cs" />
     <Compile Include="DesignTime\Models\DesignShellViewModel.cs" />
+    <Compile Include="Helpers\DayWidthConverter.cs" />
+    <Compile Include="Helpers\DayWidthMultiConverter.cs" />
     <Compile Include="Helpers\TimerConverter.cs" />
     <Compile Include="Helpers\VisibilityConverter.cs" />
     <Compile Include="Models\TaskModel.cs" />
@@ -103,6 +110,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Themes\Views\CalendarTheme.xaml.cs">
+      <DependentUpon>CalendarTheme.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Themes\Views\TaskItemTheme.xaml.cs">
       <DependentUpon>TaskItemTheme.xaml</DependentUpon>
     </Compile>
@@ -118,6 +128,9 @@
     <Compile Include="Themes\Controls.xaml.cs">
       <DependentUpon>Controls.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\CalendarViewModel.cs" />
+    <Compile Include="ViewModels\WeekViewModel.cs" />
+    <Compile Include="ViewModels\DayViewModel.cs" />
     <Compile Include="ViewModels\EditTaskViewModel.cs" />
     <Compile Include="ViewModels\EditClientViewModel.cs" />
     <Compile Include="ViewModels\DialogViewModel.cs" />
@@ -125,6 +138,12 @@
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="Views\DayView.xaml.cs">
+      <DependentUpon>DayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WeekView.xaml.cs">
+      <DependentUpon>WeekView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditTaskView.xaml.cs">
       <DependentUpon>EditTaskView.xaml</DependentUpon>
     </Compile>
@@ -140,6 +159,9 @@
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CalendarView.xaml.cs">
+      <DependentUpon>CalendarView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TaskItemView.xaml.cs">
       <DependentUpon>TaskItemView.xaml</DependentUpon>
     </Compile>
@@ -150,6 +172,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Themes\Views\CalendarTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Views\TaskItemTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -170,6 +196,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\DayView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\WeekView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\EditTaskView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -187,6 +221,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\SettingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CalendarView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
