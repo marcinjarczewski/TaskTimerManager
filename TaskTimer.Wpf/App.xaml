@@ -13,6 +13,7 @@
                     <helpers:VisibilityConverter x:Key="visibilityConverter"/>
                     <helpers:TimerConverter x:Key="timerConverter"/>
                     <helpers:DayWidthConverter x:Key="dayWidthConverter"/>
+                    <helpers:DateConverter x:Key="dateConverter"/>
                 </ResourceDictionary>
                 <ResourceDictionary x:Name="appStyle" Source="Themes/AppStyle.xaml" />
                 <ResourceDictionary x:Name="brushes" Source="Themes/Brushes.xaml" />

@@ -27,5 +27,7 @@ namespace TaskTimer.Contracts.Db
         void EditTask(DbTaskDto task);
 
         int AddTask(DbTaskDto task);
+
+        List<DbTaskDto> GetHistoryTasks();
     }
 }

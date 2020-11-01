@@ -10,7 +10,7 @@ using System.Windows.Data;
 
 namespace TaskTimer.Wpf.Helpers
 {
-    [ValueConversion(typeof(int), typeof(int))]
+    [ValueConversion(typeof(int), typeof(double))]
     public class DayWidthConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -19,7 +19,7 @@ namespace TaskTimer.Wpf.Helpers
             //{
             //    return 100;
             //}
-            var val = int.Parse(value.ToString());
+            var val = double.Parse(value.ToString());
             int margin = 2 * 7 +7;
             return (val - margin) / 7;
         }

@@ -108,7 +108,7 @@ namespace TaskTimer.Wpf.ViewModels
 
         private string GetNameFromTask(TaskModel task)
         {
-            return string.Format("{0} ({1}h) {2}: {3}", task.StartDate.ToString("hh:MM"), Math.Round((double)task.ReportedTimeInSeconds / 60, 1), task.ClientName, task.Subject);
+            return string.Format("{1}h:{2}: {3}", task.StartDate.ToString("hh:MM"), Math.Round((double)task.ReportedTimeInSeconds / 3600.0, 1).ToString(), task.ClientName, task.Subject);
             //return string.Format("{0} ({1}h) {2} {3}", task.StartDate.TimeOfDay.ToString("hh:MM"), Math.Round((double)task.ReportedTimeInSeconds/60,1),task.ClientName, task.Subject);
         }
 

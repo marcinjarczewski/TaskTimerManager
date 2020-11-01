@@ -47,10 +47,17 @@ namespace TaskTimer.Wpf.ViewModels
                 Weeks.Add(new WeekViewModel(curDate, tasks, monthNumber));
                 curDate = curDate.AddDays(7);
             }
-            if(curDate.Day != 7)
+            var mondayDiff = (int)curDate.DayOfWeek - 1;
+            if (mondayDiff < 0)
+            {
+                mondayDiff += 7;
+            }
+            var monday = curDate.AddDays(-mondayDiff).Date;
+            if (monday.Month == monthNumber)
             {
                 Weeks.Add(new WeekViewModel(curDate, tasks, monthNumber));
             }
+
         }
 
 

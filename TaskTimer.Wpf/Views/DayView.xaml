@@ -8,7 +8,7 @@
     xmlns:design="clr-namespace:TaskTimer.Wpf.DesignTime.Models" 
     d:DataContext="{d:DesignInstance Type=design:DesignDayViewModel, IsDesignTimeCreatable=True}"
     cal:Bind.AtDesignTime="True"
-    d:DesignWidth="120" Height="100">
+    d:DesignWidth="120" Height="80">
     <Grid Margin="1" Background="Azure">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>

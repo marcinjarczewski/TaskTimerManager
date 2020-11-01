@@ -26,7 +26,7 @@ namespace TaskTimer.Wpf.DesignTime.Models
             get { return char.ToUpper(_date.ToString("MMMM")[0]) + _date.ToString("MMMM").Substring(1) + " " + _date.Year.ToString(); }
         }
 
-        private List<TaskModel> _tasks { get; set; }
+        public List<TaskModel> _tasks { get; set; }
 
         public DesignCalendarViewModel()
         {
@@ -43,6 +43,10 @@ namespace TaskTimer.Wpf.DesignTime.Models
                 tasks.AddRange(GetTasks(curDate));
             }
             var mondayDiff = (int)curDate.DayOfWeek - 1;
+            if (mondayDiff < 0)
+            {
+                mondayDiff += 7;
+            }
             var monday = curDate.AddDays(-mondayDiff).Date;
             if (monday.Month == monthNumber)
             {

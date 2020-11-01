@@ -154,6 +154,7 @@ namespace TaskTimer.Wpf.ViewModels
         {
             Task.TimeInSeconds = Time;
             Task.IsEnded = true;
+            Task.EndDate = DateTime.Now;
            var config = _database.GetConfig();
             if (config.RoundReportedTime.HasValue && config.RoundReportedTime.Value != 0)
             {

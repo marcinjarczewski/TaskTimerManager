@@ -28,6 +28,8 @@ namespace TaskTimer.Wpf.Bootstrappers
                 .Register(Component.For<IModule>().ImplementedBy<BaseModule>())
                 .Register(Component.For<IShell>().ImplementedBy<BaseShell>())
                 .Register(Component.For<ShellViewModel>() /*.LifeStyle.Singleton*/)
+                .Register(Component.For<HistoryViewModel>())
+                .Register(Component.For<AboutViewModel>())
 
                 .Register(Component.For<IMapper>().Instance(mapper))
                 .Register(Component.For<INavigator>().ImplementedBy<Navigator>())

@@ -84,6 +84,7 @@
     <Compile Include="Bootstrappers\Bootstrapper.cs" />
     <Compile Include="Bootstrappers\ModuleLoader.cs" />
     <Compile Include="Bootstrappers\ShellInstaller.cs" />
+    <Compile Include="DesignTime\Models\DesignHistoryViewModel.cs" />
     <Compile Include="DesignTime\Models\DesignClientViewModel.cs" />
     <Compile Include="DesignTime\Models\DesignCalendarViewModel.cs" />
     <Compile Include="DesignTime\Models\DesignWeekViewModel.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="DesignTime\Models\DesignShellViewModel.cs" />
     <Compile Include="Helpers\DayWidthConverter.cs" />
     <Compile Include="Helpers\DayWidthMultiConverter.cs" />
+    <Compile Include="Helpers\DateConverter.cs" />
     <Compile Include="Helpers\TimerConverter.cs" />
     <Compile Include="Helpers\VisibilityConverter.cs" />
     <Compile Include="Models\TaskModel.cs" />
@@ -129,6 +131,8 @@
       <DependentUpon>Controls.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\CalendarViewModel.cs" />
+    <Compile Include="ViewModels\HistoryViewModel.cs" />
+    <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\WeekViewModel.cs" />
     <Compile Include="ViewModels\DayViewModel.cs" />
     <Compile Include="ViewModels\EditTaskViewModel.cs" />
@@ -140,6 +144,12 @@
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="Views\DayView.xaml.cs">
       <DependentUpon>DayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HistoryView.xaml.cs">
+      <DependentUpon>HistoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WeekView.xaml.cs">
       <DependentUpon>WeekView.xaml</DependentUpon>
@@ -197,6 +207,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\DayView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HistoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AboutView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

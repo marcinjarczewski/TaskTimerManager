@@ -132,7 +132,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" MaxWidth="300"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Height="Auto"  VerticalContentAlignment="Center" x:Name="Task_StartDate"></TextBox>
+                    <TextBox Height="Auto"  VerticalContentAlignment="Center" Text="{Binding Path=Task.StartDate, Converter= {StaticResource dateConverter}}"></TextBox>
                 </Grid>
             </Grid>
             <Grid x:Name="DateEndIsVisible">
@@ -145,7 +145,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" MaxWidth="300"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Height="Auto"  VerticalContentAlignment="Center" x:Name="Task_EndDate"></TextBox>
+                    <TextBox Height="Auto"  VerticalContentAlignment="Center" Text="{Binding Path=Task.EndDate, Converter= {StaticResource dateConverter}}"></TextBox>
                 </Grid>
             </Grid>
         </StackPanel>

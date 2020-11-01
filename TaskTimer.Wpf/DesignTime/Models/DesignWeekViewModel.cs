@@ -27,6 +27,10 @@ namespace TaskTimer.Wpf.DesignTime.Models
         {
             int monthNumber = DateTime.Now.Month;
             var mondayDiff = (int)DateTime.Now.DayOfWeek - 1;
+            if (mondayDiff < 0)
+            {
+                mondayDiff += 7;
+            }
             var monday = DateTime.Now.AddDays(-mondayDiff).Date;
             Days = new List<DayViewModel>();
             var tasks = new List<TaskModel>()

@@ -84,6 +84,14 @@ namespace TaskTimer.Database.Services
             return _mapper.Map<List<DbTaskDto>>(models);
         }
 
+        public List<DbTaskDto> GetHistoryTasks()
+        {
+            var database = GetConnection();
+            var models = database.Table<DbTaskModel>().Where(t => t.IsActive && t.IsEnded).ToList();
+            return _mapper.Map<List<DbTaskDto>>(models);
+        }
+
+
         /// <summary>
         /// Get single record from db. Only 1 record is used by config.
         /// </summary>
