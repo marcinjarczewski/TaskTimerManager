@@ -39,6 +39,15 @@ namespace TaskTimer.Wpf.ViewModels
             }
         }
 
+        private TaskItemViewModel _selectedTask;
+
+        public TaskItemViewModel SelectedTask
+        {
+            get { return _selectedTask; }
+            set { _selectedTask = value; }
+        }
+
+
         private DateTime _DateFrom;
 
         public DateTime DateFrom
@@ -68,10 +77,10 @@ namespace TaskTimer.Wpf.ViewModels
             var tasks = _database.GetHistoryTasks();
             var mapped = _mapper.Map<List<TaskModel>>(tasks);
             Tasks = new BindableCollection<TaskItemViewModel>(tasks.Select(t => new TaskItemViewModel(_mapper, _database, _navigator, _mapper.Map<TaskModel>(t), Tasks)).ToList());
-            foreach (var mappedI in mapped)
-            {
-                mappedI.EndDate = mappedI.StartDate;
-            }
+            //foreach (var mappedI in mapped)
+            //{
+            //    mappedI.EndDate = mappedI.StartDate;
+            //}
             Calendar = new CalendarViewModel(DateTime.Now, mapped);
 
             DateFrom = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);

@@ -35,6 +35,7 @@ namespace TaskTimer.Wpf.DesignTime.Models
         {
             var designCalendar = new DesignCalendarViewModel();
             Tasks = new BindableCollection<TaskItemViewModel>();
+            Tasks = new BindableCollection<TaskItemViewModel>(designCalendar._tasks.Select(t => new TaskItemViewModel(t)).ToList());
             Calendar = new CalendarViewModel(DateTime.Now,designCalendar._tasks);
         }
     }

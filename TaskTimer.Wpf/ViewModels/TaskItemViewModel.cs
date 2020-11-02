@@ -71,6 +71,16 @@ namespace TaskTimer.Wpf.ViewModels
             Task = new TaskModel();
         }
 
+
+
+        /// <summary>
+        /// designer
+        /// </summary>
+        public TaskItemViewModel(TaskModel model)
+        {
+            Task = model;
+        }
+
         /// <summary>
         /// Calls just once.
         /// </summary>
