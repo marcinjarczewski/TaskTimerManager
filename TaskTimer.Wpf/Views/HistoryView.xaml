@@ -41,8 +41,8 @@
                 <ColumnDefinition Width="120"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <TextBox Text="{Binding Path=DateFrom, Mode=TwoWay, Converter= {StaticResource dateConverter}}" Grid.Column="0"></TextBox>
-            <TextBox Text="{Binding Path=DateTo, Mode=TwoWay, Converter= {StaticResource dateConverter}}" Grid.Column="1"></TextBox>
+            <TextBox Text="{Binding Path=DateFrom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter= {StaticResource dateConverter}}" Grid.Column="0"></TextBox>
+            <TextBox Text="{Binding Path=DateTo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter= {StaticResource dateConverter}}" Grid.Column="1"></TextBox>
             <Button  HorizontalAlignment="Stretch" Margin="2" x:Name="FilterTasks"
                     Style="{StaticResource btnOk}" Grid.Column="2">Filtruj</Button>
         </Grid>
