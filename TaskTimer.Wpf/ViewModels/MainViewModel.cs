@@ -19,7 +19,6 @@ namespace TaskTimer.Wpf.ViewModels
         private IMapper _mapper;
         private INavigator _navigator;
 
-
         private BindableCollection<ClientModel> _Clients;
 
         public BindableCollection<ClientModel> Clients
@@ -60,12 +59,7 @@ namespace TaskTimer.Wpf.ViewModels
             _database = db;
             _mapper = mapper;
             _navigator = navigator;
-        }
-        /// <summary>
-        /// Calls every time when view is activated.
-        /// </summary>
-        public void Init()
-        {
+
             Clients = new BindableCollection<ClientModel>();
             var clients = _database.GetClients();
             _mapper.Map(clients.OrderByDescending(c => c.Priority).ToList(), Clients);
@@ -73,6 +67,13 @@ namespace TaskTimer.Wpf.ViewModels
             Tasks = new BindableCollection<TaskItemViewModel>();
             var taskViewModels = tasks.Select(t => new TaskItemViewModel(_mapper, _database, _navigator, _mapper.Map<TaskModel>(t), Tasks)).ToList();
             Tasks.AddRange(taskViewModels);
+        }
+        /// <summary>
+        /// Calls every time when view is activated.
+        /// </summary>
+        public void Init()
+        {
+
         }
 
         public void AddNewClient()
@@ -117,9 +118,7 @@ namespace TaskTimer.Wpf.ViewModels
             }
         }
 
-
-
-        protected override void OnDeactivate(bool close)
+        public void SaveTasks()
         {
             Tasks.Select(t =>
             {

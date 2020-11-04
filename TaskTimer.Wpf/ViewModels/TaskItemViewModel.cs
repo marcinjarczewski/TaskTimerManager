@@ -61,7 +61,7 @@ namespace TaskTimer.Wpf.ViewModels
         public bool PauseIsVisible { get; set; }
         public bool PlayIsVisible { get; set; }
         private System.Timers.Timer _timer;
-
+        private System.Timers.Timer _saveTimer;
 
         /// <summary>
         /// designer
@@ -86,7 +86,7 @@ namespace TaskTimer.Wpf.ViewModels
         /// </summary>
         /// <param name="db"></param>
         /// <param name="mapper"></param>
-        public TaskItemViewModel(IMapper mapper, IDbAccess db, INavigator navigator, TaskModel model, BindableCollection<TaskItemViewModel> parent)
+        public TaskItemViewModel(IMapper mapper, IDbAccess db, INavigator navigator, TaskModel model, BindableCollection<TaskItemViewModel> parent, bool isHistory = false)
         {
             _database = db;
             _mapper = mapper;
@@ -95,17 +95,32 @@ namespace TaskTimer.Wpf.ViewModels
             Parent = parent;
             Time = Task.TimeInSeconds;
 
-            _timer = new System.Timers.Timer();
-            _timer.Interval = 1000;
-            _timer.Elapsed += OnTimedEvent;
-            _timer.AutoReset = true;
-            _timer.Enabled = true;
+            if (!isHistory)
+            {
+                _timer = new System.Timers.Timer();
+                _timer.Interval = 1000;
+                _timer.Elapsed += OnTimedEvent;
+                _timer.AutoReset = true;
+                _timer.Enabled = true;
+
+                _saveTimer = new System.Timers.Timer();
+                _saveTimer.Interval = 5001;
+                _saveTimer.Elapsed += SaveTimedEvent;
+                _saveTimer.AutoReset = true;
+                _saveTimer.Enabled = true;
+            }
             PauseIsVisible = true;
         }
 
         private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
             Time++;
+        }
+
+
+        private void SaveTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
+        {
+            _database.EditTask(_mapper.Map<DbTaskDto>(Task));
         }
 
         /// <summary>

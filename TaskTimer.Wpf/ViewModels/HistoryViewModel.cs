@@ -115,7 +115,7 @@ namespace TaskTimer.Wpf.ViewModels
                 tasks = tasks.Where(t => t.EndDate?.Date <= DateTo).ToList();
             }
             Tasks.Clear();
-            Tasks.AddRange(tasks.Select(t => new TaskItemViewModel(_mapper, _database, _navigator, _mapper.Map<TaskModel>(t), Tasks)));
+            Tasks.AddRange(tasks.Select(t => new TaskItemViewModel(_mapper, _database, _navigator, _mapper.Map<TaskModel>(t), Tasks, true)));
             //Tasks = new BindableCollection<TaskItemViewModel>(tasks.Select(t => new TaskItemViewModel(_mapper, _database, _navigator, _mapper.Map<TaskModel>(t), Tasks)).ToList());
         }
 
