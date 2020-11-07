@@ -27,6 +27,10 @@ namespace TaskTimer.Wpf.Helpers
             {
                 return date.ToString("dd'/'MM'/'yyyy");
             }
+            if(parameter != null && (string)parameter == "DateOnly")
+            {
+                return date.ToString("dd'/'MM'/'yyyy");
+            }
             return date.ToString("dd'/'MM'/'yyyy HH:mm:ss");
         }
 

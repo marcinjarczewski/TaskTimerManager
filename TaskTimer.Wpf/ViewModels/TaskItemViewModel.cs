@@ -120,7 +120,7 @@ namespace TaskTimer.Wpf.ViewModels
 
         private void SaveTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
-            _database.EditTask(_mapper.Map<DbTaskDto>(Task));
+            //_database.EditTask(_mapper.Map<DbTaskDto>(Task));
         }
 
         /// <summary>
@@ -202,6 +202,8 @@ namespace TaskTimer.Wpf.ViewModels
             var taskDto = _navigator.NewTimer(_mapper.Map<DbTaskDto>(Task), !config.DisableInvoices || config.CopyDataToInvoice);
             if (taskDto != null)
             {
+                _saveTimer.Stop();
+                _timer.Stop();
                 _database.EditTask(taskDto);
                 Parent.Remove(this);
             }

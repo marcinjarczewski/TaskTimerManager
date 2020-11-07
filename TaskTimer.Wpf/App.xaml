@@ -14,6 +14,7 @@
                     <helpers:TimerConverter x:Key="timerConverter"/>
                     <helpers:DayWidthConverter x:Key="dayWidthConverter"/>
                     <helpers:DateConverter x:Key="dateConverter"/>
+                    <helpers:TimerStyleConverter x:Key="timerStyleConverter"/>
                 </ResourceDictionary>
                 <ResourceDictionary x:Name="appStyle" Source="Themes/AppStyle.xaml" />
                 <ResourceDictionary x:Name="brushes" Source="Themes/Brushes.xaml" />

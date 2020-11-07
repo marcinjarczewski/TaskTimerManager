@@ -8,13 +8,19 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="50px"></RowDefinition>
+            <RowDefinition Height="20px"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel>
-            <Grid>
-                <TextBlock>O autorze</TextBlock>
-            </Grid>
+        <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Width="600">
+            <TextBlock  Text="Autor: Marcin Jarczewski"/>
+            <TextBlock  Text="Licencja: MIT"/>
+            <TextBlock  Text="Wersja programu: 1.0.0"/>
+            <TextBlock  Text="GitHub: https://github.com/marcinjarczewski"/>
+            <TextBlock  Text="Strona programu: https://github.com/marcinjarczewski/TaskTimerManager"/>
         </StackPanel>
     </Grid>
 </UserControl>

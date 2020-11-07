@@ -8,10 +8,14 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="50px"></RowDefinition>
+            <RowDefinition Height="20px"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel>
+        <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Width="500">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" MaxWidth="200"/>
@@ -61,7 +65,7 @@
                 </Grid>
             </Grid>
         </StackPanel>
-        <DockPanel Grid.Row="1" HorizontalAlignment="Center" Grid.ColumnSpan="3">
+        <DockPanel Grid.Row="2" HorizontalAlignment="Center" Grid.ColumnSpan="3">
             <Button x:Name="Save"  Style="{StaticResource btnOk}"  Grid.Column="0" Grid.Row="1" >Save settings</Button>
         </DockPanel>
     </Grid>

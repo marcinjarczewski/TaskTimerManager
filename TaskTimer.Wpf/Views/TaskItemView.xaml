@@ -10,7 +10,7 @@
     mc:Ignorable="d"
     d:DesignWidth="680">
 
-    <Grid Margin="1" Background="Azure">
+    <Grid Margin="1"  Style="{Binding Path=PauseIsVisible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource timerStyleConverter}}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>

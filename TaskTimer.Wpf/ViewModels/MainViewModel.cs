@@ -104,7 +104,6 @@ namespace TaskTimer.Wpf.ViewModels
 
         public bool CanEditSelectedClient { get { return SelectedClient != null; } }
 
-
         public void EditSelectedClient()
         {
             var client = _navigator.NewClient(_mapper.Map<DbClientDto>(SelectedClient));
@@ -114,6 +113,7 @@ namespace TaskTimer.Wpf.ViewModels
                 SelectedClient.Name = client.Name;
                 SelectedClient.SearchName = client.SearchName;
                 SelectedClient.Priority = client.Priority;
+                NotifyOfPropertyChange(() => SelectedClient);
                 _navigator.ShowDialog("Nowy klient", "Edycja klienta zapisana");
             }
         }

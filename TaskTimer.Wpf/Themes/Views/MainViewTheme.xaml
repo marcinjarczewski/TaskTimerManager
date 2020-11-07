@@ -18,7 +18,7 @@
                 Text="{Binding Path=Task.ClientName}">
                 </TextBlock>
                 <TextBlock  Grid.Row="1"  Padding="2,0,5,0" HorizontalAlignment="Stretch"  Name="TBDate" Foreground="Green"
-               Text="{Binding Path=Task.EndDate, Mode=TwoWay, Converter= {StaticResource dateConverter}}" ></TextBlock>
+               Text="{Binding Path=Task.EndDate, Mode=TwoWay, Converter= {StaticResource dateConverter}, ConverterParameter='DateOnly'}"></TextBlock>
                 <TextBlock  Grid.Row="1" Grid.Column="1" Padding="2,0,5,0" HorizontalAlignment="Stretch"  Name="TBDescription" Foreground="Green"
                Text="{Binding Path=Task.Subject}" ></TextBlock>
             </Grid>
@@ -98,7 +98,12 @@
             </EventTrigger>
         </DataTemplate.Triggers>
     </DataTemplate>
-
+    <Style  x:Key="TaskItemGridActive" TargetType="{x:Type Grid}">
+        <Setter Property="Background" Value="Green"></Setter>
+    </Style>
+    <Style  x:Key="TaskItemGridPaused" TargetType="{x:Type Grid}">
+        <Setter Property="Background" Value="Red"></Setter>
+    </Style>
     <Style  x:Key="ClientListBox" TargetType="{x:Type ListBox}">
         <Setter Property="Background" Value="{DynamicResource MenuColor}"></Setter>
     </Style>

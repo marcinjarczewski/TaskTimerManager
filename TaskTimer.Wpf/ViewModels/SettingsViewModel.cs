@@ -55,6 +55,9 @@ namespace TaskTimer.Wpf.ViewModels
         public void Init()
         {
             var config = _database.GetConfig();
+            CopyDataToInvoice = config.CopyDataToInvoice;
+            RoundReportedTime = config.RoundReportedTime ?? 0;
+            DisableInvoices = config.DisableInvoices;           
         }
 
         public void Save()

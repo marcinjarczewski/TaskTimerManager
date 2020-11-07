@@ -80,15 +80,21 @@ namespace TaskTimer.Database.Services
         public List<DbTaskDto> GetActiveTasks()
         {
             var database = GetConnection();
-            var models = database.Table<DbTaskModel>().Where(t => t.IsActive && !t.IsEnded).ToList();
-            return _mapper.Map<List<DbTaskDto>>(models);
+            lock (locker)
+            {
+                var models = database.Table<DbTaskModel>().Where(t => t.IsActive && !t.IsEnded).ToList();
+                return _mapper.Map<List<DbTaskDto>>(models);
+            }
         }
 
         public List<DbTaskDto> GetHistoryTasks()
         {
             var database = GetConnection();
-            var models = database.Table<DbTaskModel>().Where(t => t.IsActive && t.IsEnded).ToList();
-            return _mapper.Map<List<DbTaskDto>>(models);
+            lock (locker)
+            {
+                var models = database.Table<DbTaskModel>().Where(t => t.IsActive && t.IsEnded).ToList();
+                return _mapper.Map<List<DbTaskDto>>(models);
+            }
         }
 
 
@@ -112,7 +118,10 @@ namespace TaskTimer.Database.Services
             model.DisableInvoices = config.DisableInvoices;
             model.RoundReportedTime = config.RoundReportedTime;
             //set values here        
-            database.Update(model);
+            database.RunInTransaction(() =>
+            {
+                database.Update(model);
+            });
             database.Commit();
         }
 
@@ -156,7 +165,12 @@ namespace TaskTimer.Database.Services
                 dbTask.TimeInSeconds = mappedTask.TimeInSeconds;
                 dbTask.ReportedTimeInSeconds = mappedTask.ReportedTimeInSeconds;
                 dbTask.InvoiceReportedTimeInSeconds = mappedTask.InvoiceReportedTimeInSeconds;
-                database.Update(dbTask);
+                dbTask.IsActive = mappedTask.IsActive;
+                database.RunInTransaction(() =>
+                {
+                    database.Update(dbTask);
+                });
+                database.Commit();
             }
         }
 

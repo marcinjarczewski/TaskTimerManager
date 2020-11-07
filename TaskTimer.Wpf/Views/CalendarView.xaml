@@ -25,9 +25,9 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="90"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button x:Name="GetPreviousMonth" Grid.Column="0"></Button>
+            <Button Width="90" x:Name="GetPreviousMonth" Style="{StaticResource btnPrevious}" Grid.Column="0"></Button>
             <TextBlock Text="{Binding MonthString, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Background="#FF1E70B8" Style="{StaticResource CalendarMonthLabel}"></TextBlock>
-            <Button x:Name="GetNextMonth" Grid.Column="2"></Button>
+            <Button  Width="90" x:Name="GetNextMonth" Style="{StaticResource btnNext}" Grid.Column="2"></Button>
         </Grid>
 
         <!--Row 1-->

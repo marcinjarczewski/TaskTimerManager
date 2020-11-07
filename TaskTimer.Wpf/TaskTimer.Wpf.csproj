@@ -97,6 +97,7 @@
     <Compile Include="Helpers\DayWidthMultiConverter.cs" />
     <Compile Include="Helpers\DateConverter.cs" />
     <Compile Include="Helpers\TimerConverter.cs" />
+    <Compile Include="Helpers\TimerStyleConverter.cs" />
     <Compile Include="Helpers\VisibilityConverter.cs" />
     <Compile Include="Models\TaskModel.cs" />
     <Compile Include="Models\ClientModel.cs" />

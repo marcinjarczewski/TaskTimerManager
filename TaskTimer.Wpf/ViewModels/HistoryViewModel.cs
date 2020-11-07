@@ -41,6 +41,17 @@ namespace TaskTimer.Wpf.ViewModels
             set { _tasks = value; }
         }
 
+        private TaskItemViewModel _selectedTask;
+
+        public TaskItemViewModel SelectedTask
+        {
+            get { return _selectedTask; }
+            set
+            {
+                _selectedTask = value;
+                OnPropertyChanged("CanEditSelectedTask");
+            }
+        }
 
         private CalendarViewModel _calendar;
 
@@ -53,15 +64,6 @@ namespace TaskTimer.Wpf.ViewModels
             }
         }
 
-        private TaskItemViewModel _selectedTask;
-
-        public TaskItemViewModel SelectedTask
-        {
-            get { return _selectedTask; }
-            set { _selectedTask = value; }
-        }
-
-
         private DateTime _DateFrom;
 
         public DateTime DateFrom
@@ -72,6 +74,7 @@ namespace TaskTimer.Wpf.ViewModels
                 _DateFrom = value;
                 FilterItems();
                 OnPropertyChanged("DateFrom");
+                OnPropertyChanged("Tasks");
             }
         }
 
@@ -85,9 +88,9 @@ namespace TaskTimer.Wpf.ViewModels
                 _DateTo = value;
                 FilterItems();
                 OnPropertyChanged("DateTo");
+                OnPropertyChanged("Tasks");
             }
         }
-
 
         public HistoryViewModel(IDbAccess db, IMapper mapper, INavigator navigator)
         {
@@ -132,6 +135,28 @@ namespace TaskTimer.Wpf.ViewModels
             //{
             //    mappedI.EndDate = mappedI.StartDate;
             //}
+        }
+
+
+        public bool CanEditSelectedTask { get { return SelectedTask != null && SelectedTask.Task != null && SelectedTask.Task.Id != 0; } }
+
+        public void EditSelectedTask()
+        {
+            var taskDto = _navigator.NewTimer(_mapper.Map<DbTaskDto>(SelectedTask.Task), !_database.GetConfig().DisableInvoices && !_database.GetConfig().CopyDataToInvoice);
+            if (taskDto != null)
+            {
+                _database.EditTask(taskDto);
+                SelectedTask.Task.Subject = taskDto.Subject;
+                SelectedTask.Task.Description = taskDto.Description;
+                SelectedTask.Task.InvoiceDescription = taskDto.InvoiceDescription;
+                SelectedTask.Task.ReportedTimeInSeconds = taskDto.ReportedTimeInSeconds;
+                SelectedTask.Task.InvoiceReportedTimeInSeconds = taskDto.ReportedTimeInSeconds;
+                SelectedTask.Task.InvoiceSubject = taskDto.InvoiceSubject;
+                SelectedTask.Task.StartDate = taskDto.StartDate;
+                SelectedTask.Task.IsActive = taskDto.IsActive;
+                NotifyOfPropertyChange(() => SelectedTask.Task.Subject);
+            }
+            //_navigator.ShowDialog(Task.ClientName, Task.Subject);
         }
     }
 }

@@ -49,7 +49,7 @@
 
         <ListBox Grid.Row="2" Grid.Column="2" HorizontalContentAlignment="Stretch"
                 Style="{StaticResource ClientListBox}" 
-            ItemContainerStyle="{StaticResource ClientListBoxItem}" ItemTemplate="{StaticResource TaskDataTemplate}" SelectedItem="{Binding Path=SelectedTask, Mode=TwoWay}" x:Name="Tasks">
+            ItemContainerStyle="{StaticResource ClientListBoxItem}" ItemTemplate="{StaticResource TaskDataTemplate}" SelectedItem="{Binding Path=SelectedTask, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="Tasks">
         </ListBox>
         
         
@@ -58,7 +58,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="150"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="1" Margin="0,3,0,3" x:Name="EditSelectedClient"
+            <Button Grid.Column="1" Margin="0,3,0,3" x:Name="EditSelectedTask"
                     HorizontalAlignment="Right"  Width="{Binding ActualWidth, ElementName=parentElementName}" Style="{StaticResource btnEdit}">Edytuj</Button>
         </Grid>
     </Grid>
