@@ -7,15 +7,26 @@ using TaskTimer.Contracts.Db;
 using TaskTimer.Contracts.Bootstrappers;
 using System;
 using System.IO;
+using System.Reflection;
+using System.Diagnostics;
 
 namespace TaskTimer.Wpf.ViewModels
 {
     public class AboutViewModel : PropertyChangedBase, IScreenViewModel
-    { 
+    {
         private readonly IDbAccess _database;
         private readonly IMapper _mapper;
 
-       
+
+        private string _version;
+
+        public string Version
+        {
+            get { return _version; }
+            set { _version = value; }
+        }
+
+
         /// <summary>
         /// Calls just once.
         /// </summary>
@@ -27,11 +38,17 @@ namespace TaskTimer.Wpf.ViewModels
             _mapper = mapper;
         }
 
+        public void NavigateTo(string url)
+        {
+            Process.Start(new ProcessStartInfo(url));
+        }
+
         /// <summary>
         /// Calls every time when view is activated.
         /// </summary>
         public void Init()
         {
+            Version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
     }
 }

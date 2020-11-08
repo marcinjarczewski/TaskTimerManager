@@ -5,7 +5,7 @@
         <Setter Property="FontFamily" Value="Verdana"></Setter>
     </Style>
     <Style x:Key="mainGrid" TargetType="Grid">
-        <Setter Property="Background" Value="#e9eef3"></Setter>
+        <Setter Property="Background" Value="#FFEFFFFC"></Setter>
     </Style>
     <Style  x:Key="NavListBox" TargetType="{x:Type ListBox}">
         <Setter Property="Background" Value="{DynamicResource MenuColor}"></Setter>
@@ -69,8 +69,9 @@
         <Setter Property="FontSize" Value="15" />
         <Setter Property="Foreground" Value="#888" />
         <Setter Property="Padding" Value="3" />
-        <Setter Property="FontFamily" Value="Arial" />
+        <!--<Setter Property="FontFamily" Value="Arial" />-->
     </Style>
+    
     <Style x:Key="mainTemplate" TargetType="UserControl">
         <Setter Property="Background" Value="#e9eef3"></Setter>
     </Style>

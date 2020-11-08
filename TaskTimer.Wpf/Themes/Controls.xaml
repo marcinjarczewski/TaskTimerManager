@@ -32,7 +32,7 @@
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border CornerRadius="4" Background="{TemplateBinding Background}">
                         <Grid>
-                            <Path x:Name="PathIcon" Width="25" Height="25" Stretch="Fill" Fill="Green" HorizontalAlignment="Left" Margin="13,0,0,0" >
+                            <Path x:Name="PathIcon" Width="25" Height="25" Stretch="Fill" Fill="#FF33F533" HorizontalAlignment="Left" Margin="13,0,0,0" >
                                 <Path.Data>
                                     F1 M 23.7501,33.25L 34.8334,44.3333L 52.2499,22.1668L 56.9999,26.9168L 34.8334,53.8333L 19.0001,38L 23.7501,33.25 Z
                                 </Path.Data>
@@ -104,8 +104,8 @@
                             <Setter Property="Foreground" Value="White" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#888" />
-                            <Setter Property="Foreground" Value="#FF514B4B" />
+                            <Setter Property="Background" Value="#FF2DA8EE" />
+                            <Setter Property="Foreground" Value="White" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter Property="Background" Value="#FF2DA8EE" />
@@ -124,7 +124,7 @@
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border CornerRadius="4" Background="{TemplateBinding Background}">
                         <Grid>
-                            <Path x:Name="PathIcon" Width="25" Height="25" Stretch="Fill" Fill="Green" HorizontalAlignment="Left" Margin="13,0,0,0" >
+                            <Path x:Name="PathIcon" Width="25" Height="25" Stretch="Fill" Fill="#FF33F533" HorizontalAlignment="Left" Margin="13,0,0,0" >
                                 <Path.Data>
                                     F1 M 35,19L 41,19L 41,35L 57,35L 57,41L 41,41L 41,57L 35,57L 35,41L 19,41L 19,35L 35,35L 35,19 Z
                                 </Path.Data>

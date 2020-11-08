@@ -107,6 +107,13 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style  x:Key="TaskItemGridActive" TargetType="{x:Type Grid}">
+        <Setter Property="Background" Value="{StaticResource PlayItemColor}"></Setter>
+    </Style>
+    
+    <Style  x:Key="TaskItemGridPaused" TargetType="{x:Type Grid}">
+        <Setter Property="Background" Value="{StaticResource PausedItemColor}"></Setter>
+    </Style>
     <Style BasedOn="{StaticResource btnTask}" x:Key="btnTaskPlay" TargetType="{x:Type Button}">
         <Setter Property="Template">
             <Setter.Value>

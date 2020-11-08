@@ -50,7 +50,7 @@
             </EventTrigger>
         </DataTemplate.Triggers>
     </DataTemplate>
-    
+
     <DataTemplate x:Key="ClientDataTemplate" >
         <Border Name="ClientBorder" BorderBrush="#8a8a8a" BorderThickness="4"
              CornerRadius="4" Margin="4,2">
@@ -98,12 +98,6 @@
             </EventTrigger>
         </DataTemplate.Triggers>
     </DataTemplate>
-    <Style  x:Key="TaskItemGridActive" TargetType="{x:Type Grid}">
-        <Setter Property="Background" Value="Green"></Setter>
-    </Style>
-    <Style  x:Key="TaskItemGridPaused" TargetType="{x:Type Grid}">
-        <Setter Property="Background" Value="Red"></Setter>
-    </Style>
     <Style  x:Key="ClientListBox" TargetType="{x:Type ListBox}">
         <Setter Property="Background" Value="{DynamicResource MenuColor}"></Setter>
     </Style>

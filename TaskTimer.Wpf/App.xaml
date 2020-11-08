@@ -22,6 +22,7 @@
                 <ResourceDictionary x:Name="MainViewTheme" Source="Themes/Views/MainViewTheme.xaml" />
                 <ResourceDictionary x:Name="TaskItemTheme" Source="Themes/Views/TaskItemTheme.xaml" />
                 <ResourceDictionary x:Name="CalendarTheme" Source="Themes/Views/CalendarTheme.xaml" />
+                <ResourceDictionary x:Name="AboutTheme" Source="Themes/Views/AboutTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

@@ -10,7 +10,7 @@
              mc:Ignorable="d" 
               d:DataContext="{d:DesignInstance Type=design:DesignHistoryViewModel, IsDesignTimeCreatable=True}"
              cal:Bind.AtDesignTime="True"
-             Style="{StaticResource mainTemplate}" d:DesignWidth="1200" d:DesignHeight="600">
+             d:DesignWidth="1200" d:DesignHeight="600">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"></ColumnDefinition>

@@ -1,12 +1,12 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
-    <Color x:Key="selectedMenuColorDef">#88b0e8</Color>
+    <Color x:Key="selectedMenuColorDef">#ffffff</Color>
     <StaticResource x:Key="selectedMenuColorRes" ResourceKey="selectedMenuColorDef"/>
     <SolidColorBrush x:Key="selectedMenuColorStatic" Color="{StaticResource selectedMenuColorDef}"/>
     <SolidColorBrush x:Key="SelectedMenuColor" Color="{DynamicResource selectedMenuColorRes}"/>
-  
-    <Color x:Key="menuColorDef">#c2d7f5</Color>
+
+    <Color x:Key="menuColorDef">#FF00D0F0</Color>
     <StaticResource x:Key="menuColorRes" ResourceKey="menuColorDef"/>
     <SolidColorBrush x:Key="MenuColor" Color="{DynamicResource menuColorRes}"/>
 
@@ -20,4 +20,9 @@
     <StaticResource x:Key="backgroundColorRes" ResourceKey="backgroundColorDef"/>
     <SolidColorBrush x:Key="BackgroundColor" Color="{DynamicResource backgroundColorRes}"/>
 
+    <Color  x:Key="pausedItemColorDef">#FFFF00</Color>
+    <StaticResource x:Key="pausedItemColorRes" ResourceKey="pausedItemColorDef"/>
+    <SolidColorBrush x:Key="PausedItemColor" Opacity="0.2" Color="{DynamicResource pausedItemColorRes}"/>
+
+    <SolidColorBrush x:Key="PlayItemColor" Opacity="0.2" Color="#FF33F533"/>
 </ResourceDictionary>

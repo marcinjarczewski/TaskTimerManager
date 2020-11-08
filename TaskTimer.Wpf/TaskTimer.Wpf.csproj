@@ -113,6 +113,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Themes\Views\AboutTheme.xaml.cs">
+      <DependentUpon>AboutTheme.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Themes\Views\CalendarTheme.xaml.cs">
       <DependentUpon>CalendarTheme.xaml</DependentUpon>
     </Compile>
@@ -183,6 +186,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Themes\Views\AboutTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Views\CalendarTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
