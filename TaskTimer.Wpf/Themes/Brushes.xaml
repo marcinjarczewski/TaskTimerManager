@@ -6,7 +6,7 @@
     <SolidColorBrush x:Key="selectedMenuColorStatic" Color="{StaticResource selectedMenuColorDef}"/>
     <SolidColorBrush x:Key="SelectedMenuColor" Color="{DynamicResource selectedMenuColorRes}"/>
 
-    <Color x:Key="menuColorDef">#FF00D0F0</Color>
+    <Color x:Key="menuColorDef">#FF05A6BF</Color>
     <StaticResource x:Key="menuColorRes" ResourceKey="menuColorDef"/>
     <SolidColorBrush x:Key="MenuColor" Color="{DynamicResource menuColorRes}"/>
 
