@@ -97,6 +97,7 @@ namespace TaskTimer.Wpf.ViewModels
             _database = db;
             _mapper = mapper;
             _navigator = navigator;
+            Tasks = new BindableCollection<TaskItemViewModel>();
         }
 
         public void SetDate(int year, int month)
@@ -128,9 +129,11 @@ namespace TaskTimer.Wpf.ViewModels
             var mapped = _mapper.Map<List<TaskModel>>(tasks);
             System.Action<int, int> filterDelegate = SetDate;
             Calendar = new CalendarViewModel(DateTime.Now, mapped, filterDelegate);
-            Tasks = new BindableCollection<TaskItemViewModel>(tasks.Select(t => new TaskItemViewModel(_mapper, _database, _navigator, _mapper.Map<TaskModel>(t), Tasks)).ToList());
+            //Tasks.Clear();
+            //Tasks.AddRange(new BindableCollection<TaskItemViewModel>(tasks.Select(t => new TaskItemViewModel(_mapper, _database, _navigator, _mapper.Map<TaskModel>(t), Tasks)).ToList()));
             DateFrom = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             DateTo = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(1).AddDays(-1);
+            OnPropertyChanged("Calendar");
             //foreach (var mappedI in mapped)
             //{
             //    mappedI.EndDate = mappedI.StartDate;
@@ -155,6 +158,13 @@ namespace TaskTimer.Wpf.ViewModels
                 SelectedTask.Task.StartDate = taskDto.StartDate;
                 SelectedTask.Task.IsActive = taskDto.IsActive;
                 NotifyOfPropertyChange(() => SelectedTask.Task.Subject);
+                if (!taskDto.IsActive)
+                {
+                    Tasks.Remove(SelectedTask);
+                }
+                NotifyOfPropertyChange(() => Tasks);
+                Calendar.GenerateWeeksForMonth();
+                NotifyOfPropertyChange(() => Calendar);
             }
             //_navigator.ShowDialog(Task.ClientName, Task.Subject);
         }

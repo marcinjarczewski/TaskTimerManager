@@ -17,13 +17,13 @@
             <StackPanel>
                 <TextBlock x:Name="Day" TextAlignment="Center"></TextBlock>
                 <Grid x:Name="Task1IsVisible">
-                    <TextBlock FontSize="12" TextAlignment="Center" Background="DarkSlateBlue" x:Name="Task1Text" Foreground="Gray" Margin="2,0,2,0"></TextBlock>
+                    <TextBlock FontSize="12" TextAlignment="Center" Background="#FFA3EA88" x:Name="Task1Text"  Margin="2,0,2,0"></TextBlock>
                 </Grid>
                 <Grid x:Name="Task2IsVisible">
-                    <TextBlock FontSize="12"  Background="BlanchedAlmond" x:Name="Task2Text" Margin="2,0,2,0"></TextBlock>
+                    <TextBlock FontSize="12"  Background="#FFA9FF8F" x:Name="Task2Text" Margin="2,0,2,0"></TextBlock>
                 </Grid>
                 <Grid x:Name="Task3IsVisible">
-                    <TextBlock FontSize="12"  Background="Coral" x:Name="Task3Text" Margin="2,0,2,0"></TextBlock>
+                    <TextBlock FontSize="12"  Background="#FF6DFF5F" x:Name="Task3Text" Margin="2,0,2,0"></TextBlock>
                 </Grid>
                 <Grid x:Name="MoreTaskIsVisible">
                     <TextBlock FontSize="12"   TextAlignment="Center"  Margin="2,0,2,0">......</TextBlock>

@@ -9,7 +9,7 @@
     xmlns:design="clr-namespace:TaskTimer.Wpf.DesignTime.Models" 
     mc:Ignorable="d"
     d:DesignWidth="707">
-    <ListBox  HorizontalContentAlignment="Stretch"
+    <ListBox 
                  x:Name="Days">
         <ListBox.ItemsPanel>
             <ItemsPanelTemplate>
@@ -26,7 +26,7 @@
                 <ContentControl
                      cal:View.Model="{Binding}" HorizontalAlignment="Stretch" >
                     <ContentControl.Width>
-                        <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type UserControl}}" Converter ="{StaticResource dayWidthConverter}" />
+                        <Binding Path="ActualWidth" ElementName="Days" Converter ="{StaticResource dayWidthConverter}" ConverterParameter="4" />
                         <!--<MultiBinding ConverterParameter="" Converter ="{StaticResource dayWidthConverter}">
                             <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type Grid}}"/>
                             <Binding Path="ActualHeight, ElementName=parentElementName"/>

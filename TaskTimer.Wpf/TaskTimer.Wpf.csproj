@@ -53,6 +53,9 @@
     <Reference Include="Castle.Windsor, Version=5.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Windsor.5.0.1\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -99,6 +102,7 @@
     <Compile Include="Helpers\TimerConverter.cs" />
     <Compile Include="Helpers\TimerStyleConverter.cs" />
     <Compile Include="Helpers\VisibilityConverter.cs" />
+    <Compile Include="Helpers\WindowHelper.cs" />
     <Compile Include="Models\TaskModel.cs" />
     <Compile Include="Models\ClientModel.cs" />
     <Compile Include="Modules\BaseModule.cs" />

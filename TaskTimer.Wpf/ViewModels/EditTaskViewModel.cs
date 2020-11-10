@@ -1,5 +1,7 @@
 ﻿using Caliburn.Micro;
+using Newtonsoft.Json;
 using System;
+using System.Windows;
 using TaskTimer.Contracts;
 using TaskTimer.Contracts.Bootstrappers;
 using TaskTimer.Contracts.Db;
@@ -93,6 +95,12 @@ namespace TaskTimer.Wpf.ViewModels
             {
                 _navigator.ShowDialog("Walidacja zadania", validateError);
             }
+        }
+
+        public void Export()
+        {
+            Clipboard.SetText(JsonConvert.SerializeObject(Task));
+            _navigator.ShowDialog("Eksport", "Dane zapisane do schowka");         
         }
 
         public string Validate()

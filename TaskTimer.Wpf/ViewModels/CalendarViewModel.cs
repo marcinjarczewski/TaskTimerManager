@@ -26,7 +26,7 @@ namespace TaskTimer.Wpf.ViewModels
         }
 
         private List<TaskModel> _tasks { get; set; }
-        private System.Action<int,int> _filterDelegation { get; set; }
+        private System.Action<int, int> _filterDelegation { get; set; }
 
         /// <summary>
         /// for designer
@@ -46,7 +46,7 @@ namespace TaskTimer.Wpf.ViewModels
             GenerateWeeksForMonth();
         }
 
-        private void GenerateWeeksForMonth()
+        public void GenerateWeeksForMonth()
         {
             Weeks.Clear();
             var monthNumber = _date.Month;
@@ -68,8 +68,21 @@ namespace TaskTimer.Wpf.ViewModels
             }
         }
 
+        private int _calendarWidth;
+
+        public int CalendarWidth
+        {
+            get { return _calendarWidth; }
+            set
+            {
+                _calendarWidth = value;
+                OnPropertyChanged("CalendarWidth");
+            }
+        }
+
+
         public void GetPreviousMonth()
-        {            
+        {
             _date = _date.AddMonths(-1);
             GenerateWeeksForMonth();
             OnPropertyChanged("MonthString");

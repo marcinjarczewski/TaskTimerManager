@@ -8,8 +8,9 @@
         mc:Ignorable="d" FontSize="16"
         d:DataContext="{d:DesignInstance Type=design:DesignShellViewModel, IsDesignTimeCreatable=True}"
         cal:Bind.AtDesignTime="True"
+        Width="{Binding WindowWidth, Mode=TwoWay}"
         Style="{StaticResource MainWindow}"
-        Title="MainWindow" Height="650" Width="1200">
+        Title="MainWindow" Height="650">
     <Grid Style="{StaticResource mainGrid}">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>

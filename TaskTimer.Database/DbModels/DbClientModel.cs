@@ -18,5 +18,7 @@ namespace TaskTimer.Database.DbModels
         public bool IsActive { get; set; }
 
         public int Priority { get; set; }
+
+        public string Description { get; set; }
     }
 }

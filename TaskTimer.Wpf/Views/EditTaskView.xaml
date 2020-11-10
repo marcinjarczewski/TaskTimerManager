@@ -152,6 +152,8 @@
         <DockPanel Grid.Row="1" HorizontalAlignment="Center" Grid.ColumnSpan="3">
             <Button Height="35"  Width="{Binding ActualWidth, ElementName=parentElementName}" x:Name="SaveTask"
                     Style="{StaticResource btnOk}">Zapisz</Button>
+            <Button Height="35" Margin="14,0,0,0" Width="{Binding ActualWidth, ElementName=parentElementName}" x:Name="Export"
+                    Style="{StaticResource btnOk}">Eksportuj</Button>
             <Button Height="35" Margin="14,0,0,0"  Width="{Binding ActualWidth, ElementName=parentElementName}" x:Name="Cancel" 
                   Content="{x:Static trans:Resources.Cancel}"  Style="{StaticResource btnCancel}"></Button>
             <Button Height="35" Margin="14,0,0,0"  Width="{Binding ActualWidth, ElementName=parentElementName}" x:Name="Delete" 

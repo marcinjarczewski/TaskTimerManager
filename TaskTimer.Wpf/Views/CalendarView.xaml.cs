@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TaskTimer.Wpf.Helpers;
 
 namespace TaskTimer.Wpf.Views
 {
@@ -22,7 +23,12 @@ namespace TaskTimer.Wpf.Views
     {
         public CalendarView()
         {
-            //InitializeComponent();
+            InitializeComponent();
+        }
+
+        private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            WindowHelper.CalendarWidth = (int)this.ActualWidth;
         }
     }
 }

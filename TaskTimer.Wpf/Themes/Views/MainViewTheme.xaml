@@ -31,6 +31,8 @@
                     To="#2a4798" Duration="0:0:0.25"/>
                         <ColorAnimation  Storyboard.TargetName="TBName" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" 
                     To="#2a4798" Duration="0:0:0.25"/>
+                        <ColorAnimation  Storyboard.TargetName="TBDate" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" 
+                    To="#2a4798" Duration="0:0:0.25"/>
                         <ColorAnimation  Storyboard.TargetName="TBDescription" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" 
                     To="#2a4798" Duration="0:0:0.25"/>
                     </Storyboard>
@@ -42,6 +44,8 @@
                         <ColorAnimation  Storyboard.TargetName="ClientBorder" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" 
                     To="#8a8a8a" Duration="0:0:0.25"/>
                         <ColorAnimation Storyboard.TargetName="TBName" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" 
+                    To="Green" Duration="0:0:0.25"/>
+                        <ColorAnimation  Storyboard.TargetName="TBDate" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" 
                     To="Green" Duration="0:0:0.25"/>
                         <ColorAnimation  Storyboard.TargetName="TBDescription" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" 
                     To="Green" Duration="0:0:0.25"/>
@@ -68,7 +72,7 @@
                 Text="{Binding Path=Name}">
                 </TextBlock>
                 <TextBlock  Grid.Row="1"  Padding="2,0,5,0" HorizontalAlignment="Stretch"  Name="TBDescription" Foreground="Green"
-               Text="{Binding Path=Priority}" ></TextBlock>
+               Text="{Binding Path=Description}" ></TextBlock>
             </Grid>
         </Border>
         <DataTemplate.Triggers>

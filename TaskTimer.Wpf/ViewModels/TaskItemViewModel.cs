@@ -104,7 +104,7 @@ namespace TaskTimer.Wpf.ViewModels
                 _timer.Enabled = true;
 
                 _saveTimer = new System.Timers.Timer();
-                _saveTimer.Interval = 5001;
+                _saveTimer.Interval = 30001;
                 _saveTimer.Elapsed += SaveTimedEvent;
                 _saveTimer.AutoReset = true;
                 _saveTimer.Enabled = true;
@@ -120,7 +120,7 @@ namespace TaskTimer.Wpf.ViewModels
 
         private void SaveTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
-            //_database.EditTask(_mapper.Map<DbTaskDto>(Task));
+            _database.EditTask(_mapper.Map<DbTaskDto>(Task));
         }
 
         /// <summary>

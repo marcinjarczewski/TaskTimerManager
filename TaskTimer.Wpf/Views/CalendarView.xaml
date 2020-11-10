@@ -7,9 +7,10 @@
     xmlns:design="clr-namespace:TaskTimer.Wpf.DesignTime.Models" 
     d:DataContext="{d:DesignInstance Type=design:DesignCalendarViewModel, IsDesignTimeCreatable=True}"
     cal:Bind.AtDesignTime="True"
+    SizeChanged="UserControl_SizeChanged"
     mc:Ignorable="d"
     d:DesignWidth="700">
-    <Grid HorizontalAlignment="Stretch">
+    <Grid  HorizontalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
@@ -40,41 +41,41 @@
             </ListBox.ItemsPanel>
             <ListBoxItem Style="{StaticResource CalendarDayLabel}" >
                 <ListBoxItem.Width>
-                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type UserControl}}" Converter ="{StaticResource dayWidthConverter}" />
+                    <Binding Path="ActualWidth" ElementName="Labels" Converter ="{StaticResource dayWidthConverter}" />
                 </ListBoxItem.Width>
                 Poniedziałek
             </ListBoxItem>
             <ListBoxItem  Style="{StaticResource CalendarDayLabel}">
                 <ListBoxItem.Width>
-                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type UserControl}}" Converter ="{StaticResource dayWidthConverter}" />
+                    <Binding Path="ActualWidth" ElementName="Labels" Converter ="{StaticResource dayWidthConverter}" />
                 </ListBoxItem.Width>
                 Wtorek</ListBoxItem>
             <ListBoxItem   Style="{StaticResource CalendarDayLabel}">
                 <ListBoxItem.Width>
-                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type UserControl}}" Converter ="{StaticResource dayWidthConverter}" />
+                    <Binding Path="ActualWidth" ElementName="Labels" Converter ="{StaticResource dayWidthConverter}" />
                 </ListBoxItem.Width>
                 Środa</ListBoxItem>
             <ListBoxItem   Style="{StaticResource CalendarDayLabel}">
                 <ListBoxItem.Width>
-                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type UserControl}}" Converter ="{StaticResource dayWidthConverter}" />
+                    <Binding Path="ActualWidth" ElementName="Labels" Converter ="{StaticResource dayWidthConverter}" />
                 </ListBoxItem.Width>
                 Czwartek
             </ListBoxItem>
             <ListBoxItem   Style="{StaticResource CalendarDayLabel}">
                 <ListBoxItem.Width>
-                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type UserControl}}" Converter ="{StaticResource dayWidthConverter}" />
+                    <Binding Path="ActualWidth" ElementName="Labels" Converter ="{StaticResource dayWidthConverter}" />
                 </ListBoxItem.Width>
                 Piątek
             </ListBoxItem>
             <ListBoxItem   Style="{StaticResource CalendarDayLabel}">
                 <ListBoxItem.Width>
-                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type UserControl}}" Converter ="{StaticResource dayWidthConverter}" />
+                    <Binding Path="ActualWidth" ElementName="Labels" Converter ="{StaticResource dayWidthConverter}" />
                 </ListBoxItem.Width>
                 Sobota
             </ListBoxItem>
             <ListBoxItem   Style="{StaticResource CalendarDayLabel}">
                 <ListBoxItem.Width>
-                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type UserControl}}" Converter ="{StaticResource dayWidthConverter}" />
+                    <Binding Path="ActualWidth" ElementName="Labels" Converter ="{StaticResource dayWidthConverter}" />
                 </ListBoxItem.Width>
                 Niedziela
             </ListBoxItem>
@@ -86,7 +87,7 @@
             <ListBox.ItemTemplate>
             <DataTemplate>
                 <ContentControl
-                    Width="{Binding ActualWidth, ElementName=parentElementName}" cal:View.Model="{Binding}" HorizontalAlignment="Stretch" >
+                     cal:View.Model="{Binding}" HorizontalAlignment="Stretch" >
                 </ContentControl>
             </DataTemplate>
         </ListBox.ItemTemplate>

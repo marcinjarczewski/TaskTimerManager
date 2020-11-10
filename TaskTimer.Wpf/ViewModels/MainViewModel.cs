@@ -82,6 +82,7 @@ namespace TaskTimer.Wpf.ViewModels
             if(client != null)
             {
                 _database.AddClient(client);
+                Clients.Add(_mapper.Map<ClientModel>(client));
                 _navigator.ShowDialog("Nowy klient", "Nowy klient został dodany");
             }
         }
@@ -113,6 +114,7 @@ namespace TaskTimer.Wpf.ViewModels
                 SelectedClient.Name = client.Name;
                 SelectedClient.SearchName = client.SearchName;
                 SelectedClient.Priority = client.Priority;
+                SelectedClient.Description = client.Description;
                 NotifyOfPropertyChange(() => SelectedClient);
                 _navigator.ShowDialog("Nowy klient", "Edycja klienta zapisana");
             }
