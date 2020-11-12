@@ -10,6 +10,8 @@
 
         public int? RoundReportedTime { get; set; }
 
-        public bool? AutoSave { get; set; }
+        public string Language { get; set; }
+
+        public string LanguageCode { get; set; }
     }
 }

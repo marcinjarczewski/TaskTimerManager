@@ -10,7 +10,7 @@
         mc:Ignorable="d" FontSize="16"    
         d:DataContext="{d:DesignInstance Type=design:DesignDialogViewModel, IsDesignTimeCreatable=True}"
         cal:Bind.AtDesignTime="True"
-        Title="Edycja stopera" Height="610" Width="700">
+        Title="{x:Static trans:Resources.EditTask}" Height="610" Width="700">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -22,7 +22,7 @@
                     <ColumnDefinition Width="*" MaxWidth="200"/>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Nazwa klienta:"/>
+                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="{x:Static trans:Resources.ClientName}"/>
                 <Grid Margin="0,2" Grid.Column="1" Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" MaxWidth="300"/>
@@ -35,7 +35,7 @@
                     <ColumnDefinition Width="*" MaxWidth="200"/>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Tytuł:"/>
+                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="{x:Static trans:Resources.Title}"/>
                 <Grid Margin="0,2" Grid.Column="1" Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" MaxWidth="300"/>
@@ -48,7 +48,7 @@
                     <ColumnDefinition Width="*" MaxWidth="200"/>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock  Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Opis:"/>
+                <TextBlock  Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="{x:Static trans:Resources.Description}"/>
                 <Grid Height="100" Margin="0,2" Grid.Column="1" Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" MaxWidth="300"/>
@@ -61,7 +61,7 @@
                     <ColumnDefinition Width="*" MaxWidth="200"/>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Tytuł faktura:"/>
+                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="{x:Static trans:Resources.InvoiceTitle}"/>
                 <Grid Margin="0,2" Grid.Column="1" Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" MaxWidth="300"/>
@@ -74,7 +74,7 @@
                     <ColumnDefinition Width="*" MaxWidth="200"/>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Opis faktura:"/>
+                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="{x:Static trans:Resources.InvoiceDescription}"/>
                 <Grid Height="100" Margin="0,2" Grid.Column="1" Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" MaxWidth="300"/>
@@ -87,7 +87,7 @@
                     <ColumnDefinition Width="*" MaxWidth="200"/>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Czas zadania:"/>
+                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="{x:Static trans:Resources.TaskTime}"/>
                 <Grid Margin="0,2" Grid.Column="1" Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" MaxWidth="300"/>
@@ -101,7 +101,7 @@
                     <ColumnDefinition Width="19*" />
                     <ColumnDefinition Width="227*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Zaraportowany czas zadania:" Margin="0,0,0,-1"/>
+                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="{x:Static trans:Resources.ReportedTaskTime}" Margin="0,0,0,-1"/>
                 <Grid Margin="0,2" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" MaxWidth="300"/>
@@ -114,7 +114,7 @@
                     <ColumnDefinition Width="*" MaxWidth="200"/>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Zaraportowany czas zadania na fakturze:"/>
+                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="{x:Static trans:Resources.InvoiceReportedTaskTime}"/>
                 <Grid Margin="0,2" Grid.Column="1" Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" MaxWidth="300"/>
@@ -127,7 +127,7 @@
                     <ColumnDefinition Width="*" MaxWidth="200"/>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Data rozpoczęcia:"/>
+                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="{x:Static trans:Resources.DateStart}"/>
                 <Grid Margin="0,2" Grid.Column="1" Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" MaxWidth="300"/>
@@ -140,7 +140,7 @@
                     <ColumnDefinition Width="*" MaxWidth="200"/>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Data zakończenia:"/>
+                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="{x:Static trans:Resources.DateEnd}"/>
                 <Grid Margin="0,2" Grid.Column="1" Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" MaxWidth="300"/>
@@ -151,13 +151,13 @@
         </StackPanel>
         <DockPanel Grid.Row="1" HorizontalAlignment="Center" Grid.ColumnSpan="3">
             <Button Height="35"  Width="{Binding ActualWidth, ElementName=parentElementName}" x:Name="SaveTask"
-                    Style="{StaticResource btnOk}">Zapisz</Button>
+                    Style="{StaticResource btnOk}" Content="{x:Static trans:Resources.Save}"></Button>
             <Button Height="35" Margin="14,0,0,0" Width="{Binding ActualWidth, ElementName=parentElementName}" x:Name="Export"
-                    Style="{StaticResource btnOk}">Eksportuj</Button>
+                    Style="{StaticResource btnExport}" Content="{x:Static trans:Resources.Export}"></Button>
             <Button Height="35" Margin="14,0,0,0"  Width="{Binding ActualWidth, ElementName=parentElementName}" x:Name="Cancel" 
                   Content="{x:Static trans:Resources.Cancel}"  Style="{StaticResource btnCancel}"></Button>
             <Button Height="35" Margin="14,0,0,0"  Width="{Binding ActualWidth, ElementName=parentElementName}" x:Name="Delete" 
-                  Content="Usuń"  Style="{StaticResource btnDelete}"></Button>
+                  Content="{x:Static trans:Resources.Delete}"  Style="{StaticResource btnDelete}"></Button>
         </DockPanel>
     </Grid>
 </Window>

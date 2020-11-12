@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:trans= "clr-namespace:TaskTimer.Wpf.Properties"
              xmlns:local="clr-namespace:TaskTimer.Wpf.Views"
              xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform"
              mc:Ignorable="d"             
@@ -16,15 +17,15 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Width="600">
-            <TextBox Style="{StaticResource SelectableTextBlock}"  Text="Autor: Marcin Jarczewski"/>
-            <TextBox Style="{StaticResource SelectableTextBlock}"   Text="Licencja: MIT"/>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" MaxWidth="800">
+            <TextBox Style="{StaticResource SelectableTextBlock}"  Text="{x:Static trans:Resources.Author}"/>
+            <TextBox Style="{StaticResource SelectableTextBlock}"  Text="{x:Static trans:Resources.Licence}"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="0" Style="{StaticResource SelectableTextBlock}"   Text="Wersja programu:"/>
+                <TextBox Grid.Column="0" Style="{StaticResource SelectableTextBlock}"   Text="{x:Static trans:Resources.Version}"/>
                 <TextBox Grid.Column="1" Style="{StaticResource SelectableTextBlock}" x:Name="Version"/>
             </Grid>
             <Grid>
@@ -46,7 +47,7 @@
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="0" Style="{StaticResource SelectableTextBlock}"   Text="Strona programu:"/>
+                <TextBox Grid.Column="0" Style="{StaticResource SelectableTextBlock}"   Text="{x:Static trans:Resources.Website}"/>
                 <Button Grid.Column="1" Style="{StaticResource HyperLinkButton}" Focusable="False"
                  cal:Message.Attach="[Action NavigateTo('https://github.com/marcinjarczewski/TaskTimerManager')]">
                     <TextBlock>

@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.10.0.0\lib\net461\AutoMapper.dll</HintPath>
@@ -96,6 +99,7 @@
     <Compile Include="DesignTime\Models\DesignDayViewModel.cs" />
     <Compile Include="DesignTime\Models\DesignTaskItemViewModel.cs" />
     <Compile Include="DesignTime\Models\DesignShellViewModel.cs" />
+    <Compile Include="Helpers\LanguagesEnum.cs" />
     <Compile Include="Helpers\DayWidthConverter.cs" />
     <Compile Include="Helpers\DayWidthMultiConverter.cs" />
     <Compile Include="Helpers\DateConverter.cs" />
@@ -103,6 +107,7 @@
     <Compile Include="Helpers\TimerStyleConverter.cs" />
     <Compile Include="Helpers\VisibilityConverter.cs" />
     <Compile Include="Helpers\WindowHelper.cs" />
+    <Compile Include="Models\LanguageModel.cs" />
     <Compile Include="Models\TaskModel.cs" />
     <Compile Include="Models\ClientModel.cs" />
     <Compile Include="Modules\BaseModule.cs" />
@@ -302,7 +307,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\TaskTimer.Contracts\TaskTimer.Contracts.csproj">
       <Project>{3b04e229-2ce3-4c15-88b5-9c28a808ce2d}</Project>
@@ -312,6 +316,9 @@
       <Project>{44ee3278-1b78-42b9-a486-efd9797918df}</Project>
       <Name>TaskTimer.Database</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="favicon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,6 +10,15 @@
         <Setter Property="FontFamily" Value="Arial" />
     </Style>
 
+    <Style  TargetType="{x:Type ComboBox}">
+        <Setter Property="Height" Value="Auto" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Margin" Value="1" />
+        <Setter Property="Foreground" Value="#888"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FontFamily" Value="Arial" />
+    </Style>
+
     <Style x:Key="tblDescription" TargetType="{x:Type TextBlock}">
         <Setter Property="TextWrapping" Value="Wrap" />
         <Setter Property="TextAlignment" Value="Right" />
@@ -84,6 +93,7 @@
         </Setter>
     </Style>
 
+
     <Style BasedOn="{StaticResource btnOk}" x:Key="btnEdit" TargetType="{x:Type Button}">
         <Setter Property="Template">
             <Setter.Value>
@@ -127,6 +137,39 @@
                             <Path x:Name="PathIcon" Width="25" Height="25" Stretch="Fill" Fill="#FF33F533" HorizontalAlignment="Left" Margin="13,0,0,0" >
                                 <Path.Data>
                                     F1 M 35,19L 41,19L 41,35L 57,35L 57,41L 41,41L 41,57L 35,57L 35,41L 19,41L 19,35L 35,35L 35,19 Z
+                                </Path.Data>
+                            </Path>
+                            <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="45,0,30,0" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" Value="#FFBBBBBB" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FF2DA8EE" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="#FF2DA8EE" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style BasedOn="{StaticResource btnOk}" x:Key="btnExport" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="4" Background="{TemplateBinding Background}">
+                        <Grid>
+                            <Path x:Name="PathIcon" Width="25" Height="25" Stretch="Fill" Fill="#FF33F533" HorizontalAlignment="Left" Margin="13,0,0,0" >
+                                <Path.Data>
+                                    F1 M 35,43L 35,25.5L 27,35L 27,25.25L 38,12.75L 49,25.25L 49,35L 41,25.5L 41,43L 35,43 Z M 17,38L 33,38L 33,42L 21,42L 21,53L 55,53L 55,42L 43,42L 43,38L 59,38L 59,57L 17,57L 17,38 Z M 33,46L 43,46L 43,49L 33,49L 33,46 Z
                                 </Path.Data>
                             </Path>
                             <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="45,0,30,0" />

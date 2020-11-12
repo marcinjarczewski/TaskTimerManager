@@ -3,6 +3,7 @@ using System;
 using TaskTimer.Contracts;
 using TaskTimer.Contracts.Bootstrappers;
 using TaskTimer.Contracts.Db;
+using TaskTimer.Wpf.Properties;
 
 namespace TaskTimer.Wpf.ViewModels
 {
@@ -55,7 +56,7 @@ namespace TaskTimer.Wpf.ViewModels
                 callback(true);
                 return;
             }
-            callback(_navigator.ShowDialog(true, "Anuluj tworzenie klienta", "Czy na pewno chcesz anulować tworzenie klienta?"));         
+            callback(_navigator.ShowDialog(true, Resources.CancelNewClient, Resources.CancelNewClientDescription));         
         }
 
         public void Init()
@@ -72,7 +73,7 @@ namespace TaskTimer.Wpf.ViewModels
             }
             else
             {
-                _navigator.ShowDialog("Walidacja klienta", validateError);
+                _navigator.ShowDialog(Resources.ClientValidation, validateError);
             }
         }
 
@@ -85,7 +86,7 @@ namespace TaskTimer.Wpf.ViewModels
         {
             if(string.IsNullOrEmpty(Client.Name))
             {
-                return "Nazwa klienta nie może być pusta";
+                return Resources.ClientNameValidation;
             }
 
             return "";

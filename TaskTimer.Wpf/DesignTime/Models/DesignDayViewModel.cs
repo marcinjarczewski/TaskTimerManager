@@ -39,21 +39,21 @@ namespace TaskTimer.Wpf.DesignTime.Models
 
         public string Task1Text
         {
-            get { return "112 12 2"; }
+            get { return "5,5h:testowy klient:temat zadania"; }
         }
 
         private string _Task2Text;
 
         public string Task2Text
         {
-            get { return "312 12 2"; }
+            get { return "2,5h:inny klient:temat zadania"; }
         }
 
         private string _Task3Text;
 
         public string Task3Text
         {
-            get { return "f a 312 12 2"; }
+            get { return "2,5h:zupełnie inny klient:temat"; ; }
         }
 
         private bool _task1IsVisible;

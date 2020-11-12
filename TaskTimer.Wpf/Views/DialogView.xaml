@@ -18,7 +18,7 @@
         <TextBlock HorizontalAlignment="Center" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Text}"></TextBlock>
         <DockPanel Grid.Row="2" HorizontalAlignment="Center" Grid.ColumnSpan="3">
             <Button Height="35" Margin="0,2,5,0"  Width="{Binding ActualWidth, ElementName=parentElementName}" x:Name="Confirm"
-                    Style="{StaticResource btnOk}">ok</Button>
+                    Style="{StaticResource btnOk}" Content="{x:Static trans:Resources.Ok}"></Button>
             <Button Height="35"  Width="{Binding ActualWidth, ElementName=parentElementName}" x:Name="Cancel" Visibility="{Binding IsConfirm, Converter={StaticResource visibilityConverter}}"
                   Content="{x:Static trans:Resources.Cancel}"  Style="{StaticResource btnCancel}"></Button>
         </DockPanel>

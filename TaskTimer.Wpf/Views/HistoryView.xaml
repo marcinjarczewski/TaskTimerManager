@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TaskTimer.Wpf.Views"
              xmlns:design="clr-namespace:TaskTimer.Wpf.DesignTime.Models" 
-             xmlns:vm="clr-namespace:TaskTimer.Wpf.ViewModels" 
+             xmlns:vm="clr-namespace:TaskTimer.Wpf.ViewModels"
+             xmlns:trans= "clr-namespace:TaskTimer.Wpf.Properties"
              xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform"
              mc:Ignorable="d" 
               d:DataContext="{d:DesignInstance Type=design:DesignHistoryViewModel, IsDesignTimeCreatable=True}"
@@ -44,7 +45,7 @@
             <TextBox Text="{Binding Path=DateFrom, Mode=TwoWay, UpdateSourceTrigger=LostFocus, Converter= {StaticResource dateConverter}}" Grid.Column="0"></TextBox>
             <TextBox Text="{Binding Path=DateTo, Mode=TwoWay, UpdateSourceTrigger=LostFocus, Converter= {StaticResource dateConverter}}" Grid.Column="1"></TextBox>
             <Button  HorizontalAlignment="Stretch" Margin="2" x:Name="FilterTasks"
-                    Style="{StaticResource btnOk}" Grid.Column="2">Filtruj</Button>
+                    Style="{StaticResource btnOk}" Grid.Column="2" Content="{x:Static trans:Resources.Filter}"></Button>
         </Grid>
 
         <ListBox Grid.Row="2" Grid.Column="2" HorizontalContentAlignment="Stretch"
@@ -59,7 +60,7 @@
                 <ColumnDefinition Width="150"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="1" Margin="0,3,0,3" x:Name="EditSelectedTask"
-                    HorizontalAlignment="Right"  Width="{Binding ActualWidth, ElementName=parentElementName}" Style="{StaticResource btnEdit}">Edytuj</Button>
+                    HorizontalAlignment="Right"  Width="{Binding ActualWidth, ElementName=parentElementName}" Style="{StaticResource btnEdit}" Content="{x:Static trans:Resources.Edit}"></Button>
         </Grid>
     </Grid>
 </UserControl>

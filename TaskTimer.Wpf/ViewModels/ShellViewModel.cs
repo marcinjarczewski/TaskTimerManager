@@ -8,13 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using TaskTimer.Wpf.Helpers;
+using System.Threading;
+using System.Globalization;
+using TaskTimer.Contracts.Db;
 
 namespace TaskTimer.Wpf.ViewModels
 {
     public class ShellViewModel : PropertyChangedBase //, INotifyPropertyChanged
     {
-        public ShellViewModel()
+        public ShellViewModel(IDbAccess db)
         {
+            var languageCode = db.GetConfig()?.LanguageCode ?? "pl";
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(languageCode);
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(languageCode);
             WindowWidth = 1200;
             MenuItems = new BindableCollection<ShellMenuItem>();
         }

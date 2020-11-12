@@ -6,6 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
+using System.Threading;
+using System.Globalization;
 
 namespace TaskTimer.Wpf.Bootstrappers
 {

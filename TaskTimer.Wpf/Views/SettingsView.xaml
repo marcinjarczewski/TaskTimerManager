@@ -1,6 +1,7 @@
 ﻿<UserControl  x:Class="TaskTimer.Wpf.Views.SettingsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:trans= "clr-namespace:TaskTimer.Wpf.Properties"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TaskTimer.Wpf.Views"
@@ -21,7 +22,7 @@
                     <ColumnDefinition Width="*" MaxWidth="200"/>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Wyłącz dane do faktur:"/>
+                <TextBlock  Text="{x:Static trans:Resources.TurnOffInvoices}" Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0"/>
                 <Grid Margin="0,2" Grid.Column="1" Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" MaxWidth="300"/>
@@ -38,7 +39,7 @@
                     <ColumnDefinition Width="*" MaxWidth="200"/>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock  Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Kopiuj dane do faktur:"/>
+                <TextBlock  Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0"  Text="{x:Static trans:Resources.CopyInvoices}"/>
                 <Grid Margin="0,2" Grid.Column="1" Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" MaxWidth="300"/>
@@ -55,7 +56,21 @@
                     <ColumnDefinition Width="*" MaxWidth="200"/>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock  Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="Zaokrąglaj czas do pełnych minut (np. 30):"/>
+                <TextBlock  Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0"  Text="{x:Static trans:Resources.Language}"/>
+                <Grid Margin="0,2" Grid.Column="1" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MaxWidth="300"/>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox x:Name="Languages" SelectedItem="{Binding Path=SelectedLanguage, Mode=TwoWay}" DisplayMemberPath="Name">
+                    </ComboBox>
+                </Grid>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" MaxWidth="200"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock  Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="0" Text="{x:Static trans:Resources.RoundReportedTime}"/>
                 <Grid Margin="0,2" Grid.Column="1" Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" MaxWidth="300"/>
@@ -66,7 +81,7 @@
             </Grid>
         </StackPanel>
         <DockPanel Grid.Row="2" HorizontalAlignment="Center" Grid.ColumnSpan="3">
-            <Button x:Name="Save"  Style="{StaticResource btnOk}"  Grid.Column="0" Grid.Row="1" >Save settings</Button>
+            <Button x:Name="Save"  Style="{StaticResource btnOk}"  Grid.Column="0" Grid.Row="1" Content="{x:Static trans:Resources.SaveSettings}" ></Button>
         </DockPanel>
     </Grid>
 </UserControl>

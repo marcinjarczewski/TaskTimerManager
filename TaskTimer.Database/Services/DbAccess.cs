@@ -117,6 +117,7 @@ namespace TaskTimer.Database.Services
             model.CopyDataToInvoice = config.CopyDataToInvoice;
             model.DisableInvoices = config.DisableInvoices;
             model.RoundReportedTime = config.RoundReportedTime;
+            model.LanguageCode = config.LanguageCode;
             //set values here        
             database.RunInTransaction(() =>
             {

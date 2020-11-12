@@ -5,6 +5,7 @@ using System.Windows;
 using TaskTimer.Contracts;
 using TaskTimer.Contracts.Bootstrappers;
 using TaskTimer.Contracts.Db;
+using TaskTimer.Wpf.Properties;
 
 namespace TaskTimer.Wpf.ViewModels
 {
@@ -55,7 +56,7 @@ namespace TaskTimer.Wpf.ViewModels
             }
             if(!Task.IsActive)
             {
-                var res = _navigator.ShowDialog(true, "Usuń zadanie", "Czy na pewno chcesz usunąć zadanie?");
+                var res = _navigator.ShowDialog(true, Resources.DeleteTask, Resources.DeleteTaskDescription);
                 if(!res)
                 {
                     Task.IsActive = true;
@@ -63,7 +64,7 @@ namespace TaskTimer.Wpf.ViewModels
                 callback(res);
                 return;
             }
-            callback(_navigator.ShowDialog(true, "Anuluj edycji zadania", "Czy na pewno chcesz anulować edycję zadania?"));         
+            callback(_navigator.ShowDialog(true, Resources.CancelEditTask, Resources.CancelEditTaskDescription));         
         }
 
         public void Init()
@@ -93,21 +94,21 @@ namespace TaskTimer.Wpf.ViewModels
             }
             else
             {
-                _navigator.ShowDialog("Walidacja zadania", validateError);
+                _navigator.ShowDialog(Resources.TaskValidation, validateError);
             }
         }
 
         public void Export()
         {
             Clipboard.SetText(JsonConvert.SerializeObject(Task));
-            _navigator.ShowDialog("Eksport", "Dane zapisane do schowka");         
+            _navigator.ShowDialog(Resources.Export, Resources.ExportDescription);         
         }
 
         public string Validate()
         {
             if(string.IsNullOrEmpty(Task.Subject))
             {
-                return "Nazwa zadania nie może być pusta";
+                return Resources.TaskNameValidation;
             }
 
             return "";

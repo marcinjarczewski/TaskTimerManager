@@ -10,6 +10,7 @@ using System.IO;
 using TaskTimer.Wpf.Models;
 using System.Linq;
 using System.Collections.ObjectModel;
+using TaskTimer.Wpf.Properties;
 
 namespace TaskTimer.Wpf.ViewModels
 {
@@ -83,7 +84,7 @@ namespace TaskTimer.Wpf.ViewModels
             {
                 _database.AddClient(client);
                 Clients.Add(_mapper.Map<ClientModel>(client));
-                _navigator.ShowDialog("Nowy klient", "Nowy klient został dodany");
+                _navigator.ShowDialog(Resources.NewClient, Resources.NewClientDescription);
             }
         }
 
@@ -116,7 +117,7 @@ namespace TaskTimer.Wpf.ViewModels
                 SelectedClient.Priority = client.Priority;
                 SelectedClient.Description = client.Description;
                 NotifyOfPropertyChange(() => SelectedClient);
-                _navigator.ShowDialog("Nowy klient", "Edycja klienta zapisana");
+                _navigator.ShowDialog(Resources.NewClient, Resources.EditClientDescription);
             }
         }
 

@@ -13,6 +13,8 @@ namespace TaskTimer.Database.DbModels
 
         public int? RoundReportedTime { get; set; }
 
+        public string LanguageCode { get; set; }
+
         public bool? DisableInvoices { get; set; }
     }
 }

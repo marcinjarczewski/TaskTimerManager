@@ -1,6 +1,7 @@
 ﻿using TaskTimer.Contracts;
 using TaskTimer.Wpf.ViewModels;
 using TaskTimer.Contracts.Bootstrappers;
+using TaskTimer.Wpf.Properties;
 
 namespace TaskTimer.Wpf.Modules
 {
@@ -23,10 +24,10 @@ namespace TaskTimer.Wpf.Modules
 
         public void Init()
         {
-            _shell.MenuItems.Add(new ShellMenuItem() { Caption = "Tasks", ScreenViewModel = _mainViewModel });
-            _shell.MenuItems.Add(new ShellMenuItem() { Caption = "History", ScreenViewModel = _historyViewModel });
-            _shell.MenuItems.Add(new ShellMenuItem() { Caption = "Settings", ScreenViewModel = _settingsViewModel });
-            _shell.MenuItems.Add(new ShellMenuItem() { Caption = "About", ScreenViewModel = _aboutViewModel });
+            _shell.MenuItems.Add(new ShellMenuItem() { Caption = Resources.Tasks, ScreenViewModel = _mainViewModel });
+            _shell.MenuItems.Add(new ShellMenuItem() { Caption = Resources.History, ScreenViewModel = _historyViewModel });
+            _shell.MenuItems.Add(new ShellMenuItem() { Caption = Resources.Settings, ScreenViewModel = _settingsViewModel });
+            _shell.MenuItems.Add(new ShellMenuItem() { Caption = Resources.About, ScreenViewModel = _aboutViewModel });
         }
     }
 }
