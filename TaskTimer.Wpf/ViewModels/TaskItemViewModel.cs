@@ -190,8 +190,12 @@ namespace TaskTimer.Wpf.ViewModels
                 }
                 else
                 {
-                    Task.ReportedTimeInSeconds = configValueInMinutes * 60;
+                    Task.ReportedTimeInSeconds =Math.Max(1, configValueInMinutes * 60);
                 }
+            }
+            else
+            {
+                Task.ReportedTimeInSeconds = Task.TimeInSeconds;
             }
             if (config.CopyDataToInvoice)
             {

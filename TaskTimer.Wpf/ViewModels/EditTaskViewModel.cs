@@ -98,6 +98,11 @@ namespace TaskTimer.Wpf.ViewModels
             }
         }
 
+        public bool CanExport()
+        {
+            return Task.IsEnded;
+        }
+
         public void Export()
         {
             Clipboard.SetText(JsonConvert.SerializeObject(Task));
