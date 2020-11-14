@@ -16,5 +16,9 @@ namespace TaskTimer.Database.DbModels
         public string LanguageCode { get; set; }
 
         public bool? DisableInvoices { get; set; }
+
+        public string OTRSQueue { get; set; }
+
+        public string OTRSName { get; set; }
     }
 }

@@ -13,5 +13,9 @@
         public string Language { get; set; }
 
         public string LanguageCode { get; set; }
+
+        public string OTRSQueue { get; set; }
+
+        public string OTRSName { get; set; }
     }
 }

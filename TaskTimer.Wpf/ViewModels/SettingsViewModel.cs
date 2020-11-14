@@ -61,6 +61,21 @@ namespace TaskTimer.Wpf.ViewModels
             set { _languages = value; }
         }
 
+        private string _OTRSName;
+
+        public string OTRSName
+        {
+            get { return _OTRSName; }
+            set { _OTRSName = value; }
+        }
+
+        private string _OTRSQueue;
+
+        public string OTRSQueue
+        {
+            get { return _OTRSQueue; }
+            set { _OTRSQueue = value; }
+        }
 
 
         /// <summary>
@@ -84,6 +99,8 @@ namespace TaskTimer.Wpf.ViewModels
             CopyDataToInvoice = config.CopyDataToInvoice;
             RoundReportedTime = config.RoundReportedTime ?? 0;            
             DisableInvoices = config.DisableInvoices;
+            OTRSName = config.OTRSName;
+            OTRSQueue = config.OTRSQueue;
             Languages = new BindableCollection<LanguageModel>
             {
                 new LanguageModel
@@ -119,7 +136,9 @@ namespace TaskTimer.Wpf.ViewModels
                 CopyDataToInvoice = CopyDataToInvoice,
                 DisableInvoices = DisableInvoices,
                 LanguageCode = SelectedLanguage.Code,
-                RoundReportedTime = RoundReportedTime
+                RoundReportedTime = RoundReportedTime,
+                OTRSName = OTRSName,
+                OTRSQueue = OTRSQueue
             };
             _database.SaveConfig(config);
             if (SelectedLanguage.Code != (oldConfig.LanguageCode ?? "pl"))

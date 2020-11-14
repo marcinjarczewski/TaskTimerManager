@@ -145,7 +145,7 @@ namespace TaskTimer.Wpf.ViewModels
 
         public void EditSelectedTask()
         {
-            var taskDto = _navigator.NewTimer(_mapper.Map<DbTaskDto>(SelectedTask.Task), !_database.GetConfig().DisableInvoices && !_database.GetConfig().CopyDataToInvoice);
+            var taskDto = _navigator.NewTimer(_mapper.Map<DbTaskDto>(SelectedTask.Task), !_database.GetConfig().DisableInvoices);
             if (taskDto != null)
             {
                 _database.EditTask(taskDto);
@@ -153,7 +153,7 @@ namespace TaskTimer.Wpf.ViewModels
                 SelectedTask.Task.Description = taskDto.Description;
                 SelectedTask.Task.InvoiceDescription = taskDto.InvoiceDescription;
                 SelectedTask.Task.ReportedTimeInSeconds = taskDto.ReportedTimeInSeconds;
-                SelectedTask.Task.InvoiceReportedTimeInSeconds = taskDto.ReportedTimeInSeconds;
+                SelectedTask.Task.InvoiceReportedTimeInSeconds = taskDto.InvoiceReportedTimeInSeconds;
                 SelectedTask.Task.InvoiceSubject = taskDto.InvoiceSubject;
                 SelectedTask.Task.StartDate = taskDto.StartDate;
                 SelectedTask.Task.IsActive = taskDto.IsActive;

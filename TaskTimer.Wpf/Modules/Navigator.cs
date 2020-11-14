@@ -9,8 +9,11 @@ namespace TaskTimer.Wpf.Modules
     public class Navigator : INavigator
     {
         IWindowManager manager = new WindowManager();
-        public Navigator()
+        private IDbAccess _db;
+
+        public Navigator(IDbAccess database)
         {
+            _db = database;
         }
 
         public DbClientDto NewClient(DbClientDto client = null)
@@ -26,7 +29,7 @@ namespace TaskTimer.Wpf.Modules
 
         public DbTaskDto NewTimer(DbTaskDto timer, bool showInvoices)
         {
-            var dialog = new EditTaskViewModel(this, timer, showInvoices);
+            var dialog = new EditTaskViewModel(this, timer, _db, showInvoices);
             var result = this.manager.ShowDialog(dialog) ?? false;
             if (!result)
             {

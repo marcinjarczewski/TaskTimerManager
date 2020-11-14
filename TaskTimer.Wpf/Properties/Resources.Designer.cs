@@ -448,6 +448,24 @@ namespace TaskTimer.Wpf.Properties {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Właściciel w OTRS:.
+        /// </summary>
+        public static string OTRSName {
+            get {
+                return ResourceManager.GetString("OTRSName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Kolejka w OTRS:.
+        /// </summary>
+        public static string OTRSQueue {
+            get {
+                return ResourceManager.GetString("OTRSQueue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Polski.
         /// </summary>
         public static string Polish {

@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using Newtonsoft.Json;
 using System;
+using System.Linq;
 using System.Windows;
 using TaskTimer.Contracts;
 using TaskTimer.Contracts.Bootstrappers;
@@ -23,6 +24,8 @@ namespace TaskTimer.Wpf.ViewModels
 
         private INavigator _navigator;
 
+        private IDbAccess _database;
+
         public bool ReportedTimeIsVisible { get; set; }
 
         public bool DateEndIsVisible { get; set; }
@@ -35,7 +38,7 @@ namespace TaskTimer.Wpf.ViewModels
 
         public bool InvoiceDescriptionIsVisible { get; set; }
 
-        public EditTaskViewModel(INavigator navigator, DbTaskDto task, bool showInvoices)
+        public EditTaskViewModel(INavigator navigator, DbTaskDto task, IDbAccess database, bool showInvoices)
         {
             ReportedTimeIsVisible = task.IsEnded;
             TimeIsVisible = task.IsEnded;
@@ -45,6 +48,7 @@ namespace TaskTimer.Wpf.ViewModels
             InvoiceDescriptionIsVisible = showInvoices;
             Task = task;
             _navigator = navigator;
+            _database = database;
         }
 
         public override void CanClose(Action<bool> callback)
@@ -105,7 +109,23 @@ namespace TaskTimer.Wpf.ViewModels
 
         public void Export()
         {
-            Clipboard.SetText(JsonConvert.SerializeObject(Task));
+            var config = _database.GetConfig();
+            var client = _database.GetClients().FirstOrDefault(d => d.Id == Task.ClientId);
+            var exportData = new
+            {
+                ClientName = client.SearchName,
+                Description = Task.Description,
+                Subject = Task.Subject,
+                InvoiceSubject = Task.InvoiceSubject,
+                InvoiceDescription = Task.InvoiceDescription,
+                ReportedTime = Math.Round(Task.ReportedTimeInSeconds / 3600.0M, 2,MidpointRounding.AwayFromZero),
+                InvoiceReportedTime = Math.Round(Task.InvoiceReportedTimeInSeconds / 3600.0M, 2, MidpointRounding.AwayFromZero),
+                StartDate = Task.StartDate,
+                EndDate = Task.EndDate,
+                Owner = config.OTRSName,
+                Queue = config.OTRSQueue
+            };
+            Clipboard.SetText(JsonConvert.SerializeObject(exportData));
             _navigator.ShowDialog(Resources.Export, Resources.ExportDescription);         
         }
 

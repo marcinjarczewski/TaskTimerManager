@@ -82,8 +82,10 @@ namespace TaskTimer.Wpf.ViewModels
             var client = _navigator.NewClient();
             if(client != null)
             {
-                _database.AddClient(client);
-                Clients.Add(_mapper.Map<ClientModel>(client));
+                var id = _database.AddClient(client);
+                var newClient = _mapper.Map<ClientModel>(client);
+                newClient.Id = id;
+                Clients.Add(newClient);
                 _navigator.ShowDialog(Resources.NewClient, Resources.NewClientDescription);
             }
         }
@@ -95,7 +97,8 @@ namespace TaskTimer.Wpf.ViewModels
                 AddedDate = DateTime.Now,
                 StartDate = DateTime.Now,
                 IsActive = true,
-                ClientName = SelectedClient.Name,             
+                ClientName = SelectedClient.Name,  
+                ClientId = SelectedClient.Id
             };
             task.Id = _database.AddTask(task);
             Tasks.Add(new TaskItemViewModel(_mapper, _database, _navigator, _mapper.Map<TaskModel>(task), Tasks));

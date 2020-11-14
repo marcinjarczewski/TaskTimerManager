@@ -106,7 +106,6 @@ namespace TaskTimer.Database.Services
         {
             var database = GetConnection();
             var model = database.Table<DbConfigModel>().FirstOrDefault();
-            var temp = database.Table<DbConfigModel>().ToList();
             return _mapper.Map<DbConfigDto>(model);
         }
 
@@ -118,6 +117,8 @@ namespace TaskTimer.Database.Services
             model.DisableInvoices = config.DisableInvoices;
             model.RoundReportedTime = config.RoundReportedTime;
             model.LanguageCode = config.LanguageCode;
+            model.OTRSName = config.OTRSName;
+            model.OTRSQueue = config.OTRSQueue;
             //set values here        
             database.RunInTransaction(() =>
             {
@@ -126,7 +127,7 @@ namespace TaskTimer.Database.Services
             database.Commit();
         }
 
-        public void AddClient(DbClientDto client)
+        public int AddClient(DbClientDto client)
         {
             var clientModel = _mapper.Map<DbClientModel>(client);
             var database = GetConnection();
@@ -134,6 +135,7 @@ namespace TaskTimer.Database.Services
             {
                 database.Insert(clientModel);
                 database.Commit();
+                return clientModel.Id;
             }
         }
 

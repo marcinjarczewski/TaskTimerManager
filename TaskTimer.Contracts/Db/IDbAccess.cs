@@ -18,7 +18,7 @@ namespace TaskTimer.Contracts.Db
 
         List<DbClientDto> GetClients();
 
-        void AddClient(DbClientDto client);
+        int AddClient(DbClientDto client);
 
         void EditClient(DbClientDto client);
 
