@@ -108,7 +108,7 @@ namespace TaskTimer.Wpf.ViewModels
 
         public void FilterItems()
         {
-            var tasks = _database.GetHistoryTasks();
+            var tasks = _database.GetHistoryTasks().OrderBy(t => t.ClientName).ThenByDescending(t =>t.EndDate).ToList();
             var mapped = _mapper.Map<List<TaskModel>>(tasks);
             if (DateFrom != default(DateTime))
             {

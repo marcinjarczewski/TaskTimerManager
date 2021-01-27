@@ -15,7 +15,7 @@
                 <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Name="TBName"  Padding="2,10,5,2"
                FontSize="18"
                 FontWeight="Bold" Foreground="Green"
-                Text="{Binding Path=Task.ClientName}">
+                Text="{Binding Path=ClientNameAndTime}">
                 </TextBlock>
                 <TextBlock  Grid.Row="1"  Padding="2,0,5,0" HorizontalAlignment="Stretch"  Name="TBDate" Foreground="Green"
                Text="{Binding Path=Task.EndDate, Mode=TwoWay, Converter= {StaticResource dateConverter}, ConverterParameter='DateOnly'}"></TextBlock>

@@ -58,6 +58,18 @@ namespace TaskTimer.Wpf.ViewModels
             }
         }
 
+        public string ClientNameAndTime
+        {
+            get
+            {
+                string hours = ((int)Task.ReportedTimeInSeconds / 3600).ToString("00");
+                int time = Task.ReportedTimeInSeconds % 3600;
+                string minutes = (time / 60).ToString("00");
+                string seconds = (Task.ReportedTimeInSeconds % 60).ToString("00");
+                return string.Format("{3} ({0}:{1}:{2})", hours, minutes, seconds, Task.ClientName);
+            }
+        }
+
         public bool PauseIsVisible { get; set; }
         public bool PlayIsVisible { get; set; }
         private System.Timers.Timer _timer;
