@@ -117,6 +117,7 @@ namespace TaskTimer.Wpf.ViewModels
                 _database.EditClient(client);
                 SelectedClient.Name = client.Name;
                 SelectedClient.SearchName = client.SearchName;
+                SelectedClient.SearchId = client.SearchId;
                 SelectedClient.Priority = client.Priority;
                 SelectedClient.Description = client.Description;
                 NotifyOfPropertyChange(() => SelectedClient);

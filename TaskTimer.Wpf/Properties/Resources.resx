@@ -315,4 +315,7 @@
   <data name="OTRSQueue" xml:space="preserve">
     <value>Kolejka w OTRS:</value>
   </data>
+  <data name="OTRSId" xml:space="preserve">
+    <value>Id klienta w OTRS:</value>
+  </data>
 </root>

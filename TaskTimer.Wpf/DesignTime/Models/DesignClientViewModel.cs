@@ -29,7 +29,8 @@ namespace TaskTimer.Wpf.DesignTime.Models
                 IsActive = true,
                 Priority = 1,
                 Name = "Testowy klient",
-                SearchName = "OTRS test k"
+                SearchName = "OTRS test k",
+                SearchId = "Otrs test Id"
             };
         }
     }

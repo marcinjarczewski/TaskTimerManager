@@ -23,6 +23,7 @@
             <RowDefinition Height="38px"></RowDefinition>
             <RowDefinition Height="38px"></RowDefinition>
             <RowDefinition Height="38px"></RowDefinition>
+            <RowDefinition Height="38px"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="50px"></RowDefinition>
         </Grid.RowDefinitions>
@@ -48,16 +49,22 @@
             </Grid.ColumnDefinitions>
             <TextBox Height="Auto"  VerticalContentAlignment="Center" x:Name="Client_SearchName"></TextBox>
         </Grid>
-
-        <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="3" Text="{x:Static trans:Resources.Priority}"/>
+        <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="3" Text="{x:Static trans:Resources.OTRSId}"/>
         <Grid Margin="0,2" Grid.Column="1" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MaxWidth="300"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Height="Auto"  VerticalContentAlignment="Center" x:Name="Client_SearchId"></TextBox>
+        </Grid>
+        <TextBlock Style="{StaticResource settingsBlock}" Grid.Column="0" Grid.Row="4" Text="{x:Static trans:Resources.Priority}"/>
+        <Grid Margin="0,2" Grid.Column="1" Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" MaxWidth="300"/>
             </Grid.ColumnDefinitions>
             <TextBox Height="Auto"  VerticalContentAlignment="Center" x:Name="Client_Priority"></TextBox>
         </Grid>
-        <TextBlock Style="{StaticResource settingsBlock}" Visibility="{Binding IsEditClient, Converter={StaticResource visibilityConverter}}" Grid.Column="0" Grid.Row="4" Text="{x:Static trans:Resources.IsActive}"/>
-        <Grid Margin="4,4" Visibility="{Binding IsEditClient, Converter={StaticResource visibilityConverter}}" Grid.Column="1" Grid.Row="4">
+        <TextBlock Style="{StaticResource settingsBlock}" Visibility="{Binding IsEditClient, Converter={StaticResource visibilityConverter}}" Grid.Column="0" Grid.Row="5" Text="{x:Static trans:Resources.IsActive}"/>
+        <Grid Margin="4,4" Visibility="{Binding IsEditClient, Converter={StaticResource visibilityConverter}}" Grid.Column="1" Grid.Row="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" MaxWidth="200"/>
             </Grid.ColumnDefinitions>
@@ -67,7 +74,7 @@
                 </CheckBox.LayoutTransform>
             </CheckBox>
         </Grid>
-        <DockPanel Grid.Row="6" HorizontalAlignment="Center" Grid.ColumnSpan="3">
+        <DockPanel Grid.Row="7" HorizontalAlignment="Center" Grid.ColumnSpan="3">
             <Button Height="35"  Width="{Binding ActualWidth, ElementName=parentElementName}" x:Name="SaveClient"
                     Style="{StaticResource btnOk}" Content="{x:Static trans:Resources.Save}"></Button>
         </DockPanel>

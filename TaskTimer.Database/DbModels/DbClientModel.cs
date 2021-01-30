@@ -11,6 +11,8 @@ namespace TaskTimer.Database.DbModels
 
         public string SearchName { get; set; }
 
+        public string SearchId { get; set; }
+
         public string AddedDate { get; set; }
 
         public string ExportedDate { get; set; }

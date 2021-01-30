@@ -41,6 +41,8 @@ namespace TaskTimer.Wpf.Models
 
         public string SearchName { get; set; }
 
+        public string SearchId { get; set; }
+
         public DateTime AddedDate { get; set; }
 
         public DateTime? ExportedDate { get; set; }

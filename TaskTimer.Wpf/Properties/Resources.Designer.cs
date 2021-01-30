@@ -19,7 +19,7 @@ namespace TaskTimer.Wpf.Properties {
     // przez narzędzie, takie jak ResGen lub Visual Studio.
     // Aby dodać lub usunąć składową, edytuj plik ResX, a następnie ponownie uruchom narzędzie ResGen
     // z opcją /str lub ponownie utwórz projekt VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -444,6 +444,15 @@ namespace TaskTimer.Wpf.Properties {
         public static string OTRS {
             get {
                 return ResourceManager.GetString("OTRS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Id klienta w OTRS:.
+        /// </summary>
+        public static string OTRSId {
+            get {
+                return ResourceManager.GetString("OTRSId", resourceCulture);
             }
         }
         

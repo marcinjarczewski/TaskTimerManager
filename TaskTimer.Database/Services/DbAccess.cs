@@ -185,6 +185,7 @@ namespace TaskTimer.Database.Services
                 var dbClient = database.Table<DbClientModel>().FirstOrDefault(u => u.Id == client.Id);
                 dbClient.Name = client.Name;
                 dbClient.SearchName = client.SearchName;
+                dbClient.SearchId = client.SearchId;
                 dbClient.Description = client.Description;
                 dbClient.Priority = client.Priority;
                 dbClient.IsActive = client.IsActive;

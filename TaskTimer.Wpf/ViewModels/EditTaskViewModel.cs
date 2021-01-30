@@ -114,6 +114,7 @@ namespace TaskTimer.Wpf.ViewModels
             var exportData = new
             {
                 ClientName = client.SearchName,
+                ClientId = client.SearchId,
                 Description = Task.Description,
                 Subject = Task.Subject,
                 InvoiceSubject = Task.InvoiceSubject,
