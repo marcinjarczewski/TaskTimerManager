@@ -12,6 +12,9 @@ using System.Linq;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.ComponentModel;
+using NPOI.XSSF.UserModel;
+using NPOI.SS.UserModel;
+using TaskTimer.Wpf.Helpers;
 
 namespace TaskTimer.Wpf.ViewModels
 {
@@ -142,6 +145,70 @@ namespace TaskTimer.Wpf.ViewModels
 
 
         public bool CanEditSelectedTask { get { return SelectedTask != null && SelectedTask.Task != null && SelectedTask.Task.Id != 0; } }
+
+        public void ExportRange()
+        {
+            var workbook = new XSSFWorkbook();
+            IFont font = workbook.CreateFont();
+            font.IsBold = true;
+            //font.FontHeightInPoints = 11;
+            ICellStyle boldStyle = workbook.CreateCellStyle();
+            boldStyle.SetFont(font);
+
+            var sheet = workbook.CreateSheet("Raport");
+            int rowCounter = 0;
+            int cellCounter = 0;
+            var row = CreateRow(sheet,ref rowCounter,ref cellCounter);
+            WriteToCell(row, ref cellCounter, "Raport " + DateFrom.ToString("dd-MM-yyyy") + ":" + DateTo.ToString("dd-MM-yyyy"), boldStyle);
+            row = CreateRow(sheet, ref rowCounter, ref cellCounter);
+            var groupedTasks = Tasks.GroupBy(t => t.Task.ClientName);
+            var timeConverter = new TimerConverter();
+            foreach (var groupedTask in groupedTasks)
+            {
+                row = CreateRow(sheet, ref rowCounter, ref cellCounter);
+                WriteToCell(row, ref cellCounter, groupedTask.Key, boldStyle);
+                WriteToCell(row, ref cellCounter, "łącznie: " + groupedTask.Sum(g => ((double)g.Task.ReportedTimeInSeconds)/60.0/60.0).ToString("0.##") + "h", boldStyle);
+                row = CreateRow(sheet, ref rowCounter, ref cellCounter);
+                WriteToCell(row, ref cellCounter, "Temat");
+                WriteToCell(row, ref cellCounter, "Opis");
+                WriteToCell(row, ref cellCounter, "Od kiedy");
+                WriteToCell(row, ref cellCounter, "Do kiedy");
+                WriteToCell(row, ref cellCounter, "Zaraportowany czas pracy");
+                foreach (var task in groupedTask)
+                {
+                    row = CreateRow(sheet, ref rowCounter, ref cellCounter);
+                    WriteToCell(row, ref cellCounter, task.Task.Subject);
+                    WriteToCell(row, ref cellCounter, task.Task.Description);
+                    WriteToCell(row, ref cellCounter, task.Task.StartDate.ToString("dd-MM-yyyy HH:mm"));
+                    WriteToCell(row, ref cellCounter, task.Task.EndDate.Value.ToString("dd-MM-yyyy HH:mm"));
+                    WriteToCell(row, ref cellCounter, (((double)task.Task.ReportedTimeInSeconds) / 60.0 / 60.0).ToString("0.##"));
+                }
+                //timeConverter.Convert(groupedTask.Sum(g => g.Task.ReportedTimeInSeconds), null, null, null).ToString()
+                row = CreateRow(sheet, ref rowCounter, ref cellCounter);
+            }
+            using (FileStream stream = new FileStream("raport.xlsx", FileMode.Create, FileAccess.Write))
+            {
+                workbook.Write(stream);
+            }
+        }
+
+        private IRow CreateRow(ISheet sheet, ref int rowNumber, ref int cellCounter)
+        {
+            var row = sheet.CreateRow(rowNumber++);
+            cellCounter = 0;
+            return row;
+        }
+
+        private void WriteToCell(IRow row, ref int cellNumber, string value, ICellStyle cellStyle = null)
+        {
+            var cell = row.CreateCell(cellNumber);
+            if(cellStyle != null)
+            {
+                cell.CellStyle = cellStyle;
+            }
+            cell.SetCellValue(value);
+            cellNumber++;
+        }
 
         public void EditSelectedTask()
         {

@@ -58,8 +58,11 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="150"></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="1" Margin="0,3,0,3" x:Name="EditSelectedTask"
+            <Button Grid.Column="1" Margin="0,3,0,3" x:Name="ExportRange"
+                    HorizontalAlignment="Right"  Width="{Binding ActualWidth, ElementName=parentElementName}" Style="{StaticResource btnConvert}" Content="{x:Static trans:Resources.Export}"></Button>
+            <Button Grid.Column="2" Margin="0,3,0,3" x:Name="EditSelectedTask"
                     HorizontalAlignment="Right"  Width="{Binding ActualWidth, ElementName=parentElementName}" Style="{StaticResource btnEdit}" Content="{x:Static trans:Resources.Edit}"></Button>
         </Grid>
     </Grid>
