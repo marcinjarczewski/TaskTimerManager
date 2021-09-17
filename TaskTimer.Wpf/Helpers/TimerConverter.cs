@@ -24,14 +24,22 @@ namespace TaskTimer.Wpf.Helpers
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var timer = (string)value;
-            int res = 0;
-            int.TryParse(timer.Substring(0,2), out res);
-            int total = res * 60 * 60;
-            int.TryParse(timer.Substring(3, 2), out res);
-            total += res * 60;
-            int.TryParse(timer.Substring(6, 2), out res);
-            return total + res;
+            try
+            {
+                var timer = (string)value;
+                int res = 0;
+                int.TryParse(timer.Substring(0, 2), out res);
+                int total = res * 60 * 60;
+                int.TryParse(timer.Substring(3, 2), out res);
+                total += res * 60;
+                int.TryParse(timer.Substring(6, 2), out res);
+                return total + res;
+            }
+            catch
+            {
+                return 0;
+            }
+
         }
     }
 }
